@@ -455,6 +455,6 @@ a, button {
 /* Desktop Styles (only affecting larger screens) */
 @media only screen and (min-width: 769px) {
     .marquee-2 {
-        top: 25%; /* Adjust the position as needed */
+        top: 23%; /* Adjust the position as needed */
     }
 }
