@@ -3,21 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap">
     <title>Coming Soon - vkay.xyz</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: 'Orbitron', sans-serif;
+            background-color: #000;
+            color: #fff;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .coming-soon-text {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .gate-gif {
+            width: 300px; /* Adjust size as needed */
+            height: auto;
+            margin-bottom: 30px; /* Space below the gif */
+        }
+
+        .retro-button {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 16px;
+            padding: 15px 30px;
+            color: #fff;
+            background: transparent;
+            border: 2px solid #fff;
+            text-decoration: none;
+            letter-spacing: 2px;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            transition: color 0.3s ease;
+            box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.5);
+
+            /* Use Flexbox to center the text */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 50px; /* Ensure this matches your padding for proper height */
+        }
+
+        .retro-button::before, .retro-button::after {
+            content: '';
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            top: 0;
+            left: 0;
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateX(-100%) skewX(-15deg);
+            transition: transform 0.5s ease;
+        }
+
+        .retro-button::after {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateX(100%) skewX(15deg);
+        }
+
+        .retro-button:hover::before {
+            transform: translateX(100%) skewX(-15deg);
+        }
+
+        .retro-button:hover::after {
+            transform: translateX(-100%) skewX(15deg);
+        }
+
+        .retro-button:hover {
+            color: #000;
+            background: #fff;
+        }
+    </style>
 </head>
 <body>
-    <div class="coming-soon-container">
-        <div class="retro-text coming-soon-text">
-            Coming Soon
-        </div>
-        <div class="gate-gif-container">
-            <img src="gate.gif" alt="Gate Gif" class="gate-gif">
-        </div>
-        <!-- Back to Home Button -->
-        <a href="/" class="retro-button">Back to Home</a>
+    <div class="coming-soon-text">
+        Coming Soon
     </div>
+    <div>
+        <img src="gate.gif" alt="Gate Gif" class="gate-gif">
+    </div>
+    <!-- Back to Home Button -->
+    <a href="/" class="retro-button">Back to Home</a>
 </body>
 </html>
