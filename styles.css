@@ -458,3 +458,30 @@ a, button {
         top: 23%; /* Adjust the position as needed */
     }
 }
+
+.coming-soon-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    color: #fff;
+}
+
+.coming-soon-text {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.gate-gif-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gate-gif {
+    width: 300px; /* Adjust size as needed */
+    height: auto;
+}
