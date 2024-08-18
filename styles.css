@@ -325,9 +325,9 @@ body, html {
 /* Mobile Styles (only affecting mobile view) */
 @media only screen and (max-width: 768px) {
     .axiomatic-text {
-        font-size: 13px; /* Reduced font size by 30% */
+        font-size: 10px; /* Reduced font size by 30% */
         position: absolute;
-        top: 12%; /* Adjust position to be slightly higher */
+        top: 15%; /* Adjust position to be slightly higher */
         left: 50%;
         transform: translateX(-50%);
         width: 80%; /* Ensure it's centered and fits within mobile screens */
@@ -442,5 +442,3 @@ body, html {
         bottom: 20%; /* Adjust position to move up on larger screens */
     }
 }
-
-
