@@ -443,3 +443,11 @@ body, html {
     }
 }
 
+body {
+    cursor: url('cursor.png'), auto;
+}
+
+/* Optional: You can apply different cursors to specific elements */
+a, button {
+    cursor: url('cursor.png'), pointer;
+}
