@@ -301,7 +301,7 @@ body, html {
 /* Axiomatic Alignment Text */
 .axiomatic-text {
     font-family: 'Press Start 2P', cursive;
-    font-size: 16px; /* Larger font size for desktop */
+    font-size: 21px; /* Larger font size for desktop */
     color: #B7410E;
     text-align: center;
     padding: 10px;
