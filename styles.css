@@ -54,24 +54,59 @@ body, html {
     margin-bottom: 30px;
 }
 
+/* Adjusted Moving Text for Larger Screens */
 #moving-text {
     position: fixed;
-    top: 45%;
+    top: 45%; /* Move up the text */
     left: 50%;
     transform: translateX(-50%);
     text-align: center;
     width: auto;
-    animation: none;
     color: #fff;
     font-family: 'Press Start 2P', cursive;
-    font-size: 16px;
+    font-size: 18px;
     z-index: 12;
-    margin-top: 10px;
+}
+
+#moving-text span {
+    display: inline-block;
+    animation: colorChange 6s infinite;
+}
+
+#moving-text span:nth-child(2) {
+    animation-delay: 1s;
+}
+
+#moving-text span:nth-child(3) {
+    animation-delay: 2s;
+}
+
+#moving-text span:nth-child(4) {
+    animation-delay: 3s;
+}
+
+#moving-text span:nth-child(5) {
+    animation-delay: 4s;
+}
+
+@keyframes colorChange {
+    0%, 100% {
+        color: #fff; /* Start and end with white */
+    }
+    25% {
+        color: #ff69b4; /* Pink */
+    }
+    50% {
+        color: #00ffff; /* Cyan */
+    }
+    75% {
+        color: #ff4500; /* OrangeRed */
+    }
 }
 
 .marquee-2 {
     position: absolute;
-    top: 30%;
+    top: 27%;
     transform: translateY(-50%);
     animation: marquee 10s linear infinite;
     z-index: 11;
@@ -91,7 +126,7 @@ body, html {
 
 .marquee-jp {
     position: absolute;
-    bottom: 20%;
+    bottom: 12%;
     right: 10%;
     transform: translateY(50%);
     z-index: 11;
@@ -246,34 +281,6 @@ body, html {
     transition: color 0.3s ease-in-out, text-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 
-#moving-text {
-    position: fixed;
-    top: 55%;
-    left: 50%;
-    transform: translateX(-50%);
-    text-align: center;
-    width: auto;
-    animation: none;
-    color: #fff;
-    font-family: 'Press Start 2P', cursive;
-    font-size: 16px;
-    z-index: 12;
-}
-
-/* Dark GIF Container */
-.dark-gif-container {
-    position: fixed;
-    top: 42%;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 12;
-}
-
-.dark-gif {
-    width: 100px;
-    height: auto;
-}
-
 .hover-color {
     display: inline-block;
     transition: color 0.3s ease;
@@ -301,7 +308,7 @@ body, html {
 /* Axiomatic Alignment Text */
 .axiomatic-text {
     font-family: 'Press Start 2P', cursive;
-    font-size: 21px; /* Larger font size for desktop */
+    font-size: 19px; /* Larger font size for desktop */
     color: #B7410E;
     text-align: center;
     padding: 10px;
@@ -310,7 +317,7 @@ body, html {
     margin-left: auto;
     margin-right: auto;
     position: fixed;
-    top: 15%; /* Ensure it's positioned lower */
+    top: 3%; /* Ensure it's positioned lower */
     left: 50%; /* Center horizontally */
     transform: translate(-50%, 0); /* Center horizontally and maintain vertical position */
 }
@@ -318,9 +325,9 @@ body, html {
 /* Mobile Styles (only affecting mobile view) */
 @media only screen and (max-width: 768px) {
     .axiomatic-text {
-        font-size: 11px; /* Reduced font size by 30% */
+        font-size: 13px; /* Reduced font size by 30% */
         position: absolute;
-        top: 15%; /* Adjust position to be slightly higher */
+        top: 12%; /* Adjust position to be slightly higher */
         left: 50%;
         transform: translateX(-50%);
         width: 80%; /* Ensure it's centered and fits within mobile screens */
@@ -328,13 +335,13 @@ body, html {
 
     .cat-gif-container {
         position: absolute;
-        top: 10px; /* Position at the top of the screen for mobile */
+        top: 440px; /* Position at the top of the screen for mobile */
         left: 50%;
         transform: translateX(-50%);
     }
 
     .cat-gif {
-        height: 150px;
+        height: 200px;
     }
 
     .marquee-cn {
@@ -384,8 +391,6 @@ body, html {
         }
     }
 
-/* Mobile Styles (only affecting mobile view) */
-@media only screen and (max-width: 768px) {
     .fake-post-container {
         position: fixed;
         bottom: 10px; /* Positioned at the bottom */
@@ -414,9 +419,6 @@ body, html {
     .fake-post-content {
         font-size: 9px; /* Smaller text for "Today's vibe... E/acc" */
     }
-}
-
-
 
     .meme-img {
         display: none;
@@ -434,6 +436,10 @@ body, html {
 
     .cat-gif {
         height: 262.5px; /* 70% of the previously set size (375px * 0.7) */
+    }
+
+    .marquee-jp {
+        bottom: 20%; /* Adjust position to move up on larger screens */
     }
 }
 
