@@ -34,24 +34,22 @@
 
         .retro-button {
             font-family: 'Press Start 2P', cursive;
-            font-size: 16px;
-            padding: 15px 30px;
+            font-size: 12px; /* Smaller font size */
+            padding: 10px 20px; /* Smaller padding */
             color: #fff;
             background: transparent;
-            border: 2px solid #fff;
+            border: 1px solid #fff; /* Thinner outline */
             text-decoration: none;
-            letter-spacing: 2px;
+            letter-spacing: 1px; /* Adjusted letter spacing */
             position: relative;
             overflow: hidden;
             cursor: pointer;
             transition: color 0.3s ease;
-            box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.5);
-
-            /* Use Flexbox to center the text */
+            box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5); /* Slightly smaller shadow */
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 50px; /* Ensure this matches your padding for proper height */
+            height: 40px; /* Adjusted height */
         }
 
         .retro-button::before, .retro-button::after {
@@ -96,3 +94,4 @@
     <a href="/" class="retro-button">Back to Home</a>
 </body>
 </html>
+
