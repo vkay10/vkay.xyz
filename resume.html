@@ -68,51 +68,58 @@
         }
 
         .retro-button {
-            font-family: 'Press Start 2P', cursive;
-            font-size: 16px;
-            padding: 15px 30px;
-            color: #fff;
-            background: transparent;
-            border: 2px solid #fff;
-            text-decoration: none;
-            letter-spacing: 2px;
-            position: relative;
-            overflow: hidden;
-            cursor: pointer;
-            transition: color 0.3s ease;
-            box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.5);
-            margin-top: auto;
-        }
+    font-family: 'Press Start 2P', cursive;
+    font-size: 16px;
+    padding: 15px 30px;
+    color: #fff;
+    background: transparent;
+    border: 2px solid #fff;
+    text-decoration: none;
+    letter-spacing: 2px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.5);
 
-        .retro-button::before, .retro-button::after {
-            content: '';
-            position: absolute;
-            height: 100%;
-            width: 100%;
-            top: 0;
-            left: 0;
-            background: rgba(255, 255, 255, 0.1);
-            transform: translateX(-100%) skewX(-15deg);
-            transition: transform 0.5s ease;
-        }
+    /* Use Flexbox to center the text */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px; /* Ensure this matches your padding for proper height */
+}
 
-        .retro-button::after {
-            background: rgba(255, 255, 255, 0.2);
-            transform: translateX(100%) skewX(15deg);
-        }
+.retro-button::before, .retro-button::after {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateX(-100%) skewX(-15deg);
+    transition: transform 0.5s ease;
+}
 
-        .retro-button:hover::before {
-            transform: translateX(100%) skewX(-15deg);
-        }
+.retro-button::after {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateX(100%) skewX(15deg);
+}
 
-        .retro-button:hover::after {
-            transform: translateX(-100%) skewX(15deg);
-        }
+.retro-button:hover::before {
+    transform: translateX(100%) skewX(-15deg);
+}
 
-        .retro-button:hover {
-            color: #000;
-            background: #fff;
-        }
+.retro-button:hover::after {
+    transform: translateX(-100%) skewX(15deg);
+}
+
+.retro-button:hover {
+    color: #000;
+    background: #fff;
+}
+
+
 
         .disclaimer {
             margin-top: 30px;
@@ -143,6 +150,7 @@
             .retro-button {
                 font-size: 12px; /* Smaller button text */
                 padding: 10px 20px; /* Adjust button padding */
+                margin-top: 20px; /* Adjust margin above the button */
             }
 
             .disclaimer {
@@ -178,7 +186,7 @@
                 <!-- BSc Computer Science Skills -->
                 <li>Data Structures and Algorithms</li>
                 <li>Scalable Databases (SQL, NoSQL, Time-series)</li>
-                <li>Languages: Python, C, JavaScript</li>
+                <li>Languages: Python, C#, JavaScript</li>
                 <li>Algorithmic Optimization and Graph-based Algorithms</li>
             </ul>
         </div>
@@ -188,3 +196,4 @@
 
 </body>
 </html>
+
