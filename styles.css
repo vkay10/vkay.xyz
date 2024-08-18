@@ -451,3 +451,10 @@ body {
 a, button {
     cursor: url('cursor1.png'), pointer;
 }
+
+/* Desktop Styles (only affecting larger screens) */
+@media only screen and (min-width: 769px) {
+    .marquee-2 {
+        top: 25%; /* Adjust the position as needed */
+    }
+}
