@@ -195,6 +195,15 @@
             }
         }
 
+        /* Large iPhone Screens (e.g., iPhone 11, 12, 13) */
+        @media only screen and (min-width: 376px) and (max-width: 768px) {
+            .retro-button {
+                font-size: 8px; /* Slightly smaller font size */
+                padding: 8px 18px; /* Slightly reduced padding */
+                height: 45px; /* Slightly reduced height */
+            }
+        }
+
         /* iPhone 8 Specific Styles */
         @media only screen and (max-width: 375px) {
             .about-container {
@@ -206,11 +215,34 @@
             }
 
             .retro-button {
-                font-size: 10px; /* 20% smaller than the 11.2px set for other mobiles */
+                font-size: 8px; /* 20% smaller than the 10px set for other mobiles */
             }
 
             .retro-directory {
                 margin-top: -30px; /* Move items down for iPhone 8 */
+            }
+        }
+
+        /* Styles for even smaller devices like iPhone SE */
+        @media only screen and (max-width: 320px) {
+            .about-container {
+                font-size: 7.2px; /* Further reduce the font size */
+                margin-bottom: 40px; /* Adjust the margin for smaller screens */
+            }
+
+            .retro-directory-item {
+                font-size: 6.4px; /* Further reduce the font size */
+                padding: 4.8px; /* Reduce padding */
+            }
+
+            .retro-button {
+                font-size: 6.4px; /* Further reduce the font size */
+                padding: 8px 16px; /* Adjust button padding */
+                height: 40px; /* Reduce button height */
+            }
+
+            .retro-directory {
+                margin-top: -20px; /* Adjust margin to move items slightly down */
             }
         }
     </style>
