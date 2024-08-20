@@ -68,58 +68,56 @@
         }
 
         .retro-button {
-    font-family: 'Press Start 2P', cursive;
-    font-size: 16px;
-    padding: 15px 30px;
-    color: #fff;
-    background: transparent;
-    border: 2px solid #fff;
-    text-decoration: none;
-    letter-spacing: 2px;
-    position: relative;
-    overflow: hidden;
-    cursor: pointer;
-    transition: color 0.3s ease;
-    box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.5);
+            font-family: 'Press Start 2P', cursive;
+            font-size: 16px;
+            padding: 15px 30px;
+            color: #fff;
+            background: transparent;
+            border: 2px solid #fff;
+            text-decoration: none;
+            letter-spacing: 2px;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            transition: color 0.3s ease;
+            box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.5);
 
-    /* Use Flexbox to center the text */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 50px; /* Ensure this matches your padding for proper height */
-}
+            /* Use Flexbox to center the text */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 50px; /* Ensure this matches your padding for proper height */
+        }
 
-.retro-button::before, .retro-button::after {
-    content: '';
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    top: 0;
-    left: 0;
-    background: rgba(255, 255, 255, 0.1);
-    transform: translateX(-100%) skewX(-15deg);
-    transition: transform 0.5s ease;
-}
+        .retro-button::before, .retro-button::after {
+            content: '';
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            top: 0;
+            left: 0;
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateX(-100%) skewX(-15deg);
+            transition: transform 0.5s ease;
+        }
 
-.retro-button::after {
-    background: rgba(255, 255, 255, 0.2);
-    transform: translateX(100%) skewX(15deg);
-}
+        .retro-button::after {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateX(100%) skewX(15deg);
+        }
 
-.retro-button:hover::before {
-    transform: translateX(100%) skewX(-15deg);
-}
+        .retro-button:hover::before {
+            transform: translateX(100%) skewX(-15deg);
+        }
 
-.retro-button:hover::after {
-    transform: translateX(-100%) skewX(15deg);
-}
+        .retro-button:hover::after {
+            transform: translateX(-100%) skewX(15deg);
+        }
 
-.retro-button:hover {
-    color: #000;
-    background: #fff;
-}
-
-
+        .retro-button:hover {
+            color: #000;
+            background: #fff;
+        }
 
         .disclaimer {
             margin-top: 30px;
@@ -127,36 +125,81 @@
             color: #B7410E; /* Brick red color */
         }
 
- /* Mobile Styles */
-@media only screen and (max-width: 768px) {
+        /* Mobile Styles */
+        @media only screen and (max-width: 768px) {
+            .resume-container {
+                font-size: 8px; /* Make the entire container smaller */
+                max-width: 90%; /* Ensure it fits on mobile screens */
+                margin-bottom: 20px; /* Adjust margin for mobile */
+            }
+
+            .resume-section h2 {
+                font-size: 14px; /* Smaller headings */
+            }
+
+            .resume-section p {
+                font-size: 10px; /* Smaller paragraph text */
+            }
+
+            .resume-section ul li {
+                font-size: 10px; /* Smaller list items */
+            }
+
+            .retro-button {
+                font-size: 12px; /* Smaller button text */
+                padding: 10px 20px; /* Adjust button padding */
+                margin-top: -30px; /* Move the button up by reducing the margin-top */
+            }
+
+            .disclaimer {
+                font-size: 10px; /* Smaller disclaimer text */
+            }
+        }
+
+/* Styles for small devices like iPhone 8 */
+@media only screen and (max-width: 375px) {
+    body, html {
+        font-size: 5px; /* Reduces the base font size by 20% */
+        padding: 12px; /* Scaled down from 20px */
+    }
+
     .resume-container {
-        font-size: 8px; /* Make the entire container smaller */
-        max-width: 90%; /* Ensure it fits on mobile screens */
-        margin-bottom: 20px; /* Adjust margin for mobile */
+        margin-bottom: 20px; /* Scaled down from 50px */
+    }
+
+    .resume-section {
+        margin-bottom: 15px; /* Scaled down from 30px */
     }
 
     .resume-section h2 {
-        font-size: 14px; /* Smaller headings */
+        font-size: 9px; /* Scaled down from 18px */
     }
 
     .resume-section p {
-        font-size: 10px; /* Smaller paragraph text */
+        font-size: 8px; /* Scaled down from 14px */
+        line-height: 1.6; /* Keep line height the same */
     }
 
     .resume-section ul li {
-        font-size: 10px; /* Smaller list items */
+        font-size: 9px; /* Scaled down from 14px */
+    }
+
+    .resume-section ul li::before {
+        font-size: 7px; /* Scaled down from 12px */
     }
 
     .retro-button {
-        font-size: 12px; /* Smaller button text */
-        padding: 10px 20px; /* Adjust button padding */
-        margin-top: -30px; /* Move the button up by reducing the margin-top */
+        font-size: 8px; /* Scaled down from 16px */
+        padding: 8px 18px; /* Scaled padding */
+        height: 30px; /* Scaled down height */
+        margin-top: 20px; /* Add margin to move the button down */
     }
 
     .disclaimer {
-        font-size: 10px; /* Smaller disclaimer text */
+        font-size: 7px; /* Scaled down from 12px */
     }
 }
+
 
     </style>
 </head>
@@ -195,3 +238,4 @@
 
 </body>
 </html>
+
