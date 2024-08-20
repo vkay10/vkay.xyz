@@ -458,3 +458,40 @@ a, button {
         top: 23%; /* Adjust the position as needed */
     }
 }
+
+/* Styles for small devices like iPhone 8 */
+@media only screen and (max-width: 375px) {
+    .cat-gif {
+        height: 140px; /* 30% smaller than the current mobile size */
+    }
+
+    .japanese-text {
+        display: none; /* Hide Japanese singularity text */
+    }
+
+    .fake-post-container {
+        width: 84px; /* Smaller width for the fake meme twitter container */
+        padding: 3px; /* Adjust padding accordingly */
+    }
+
+    .profile-pic {
+        width: 25px; /* Adjust the profile pic size in the fake meme twitter */
+        height: 25px;
+    }
+
+    .username, .handle {
+        font-size: 8px; /* Smaller text sizes for username and handle */
+    }
+
+    .fake-post-content {
+        font-size: 7px; /* Smaller content text */
+    }
+}
+
+/* Further adjustments for small devices like iPhone 8 */
+@media only screen and (max-width: 375px) {
+    .axiomatic-text {
+        font-size: 8px; /* 20% smaller than the adjusted mobile size */
+    }
+}
+
