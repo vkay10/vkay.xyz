@@ -465,10 +465,6 @@ a, button {
         height: 140px; /* 30% smaller than the current mobile size */
     }
 
-    .japanese-text {
-        display: none; /* Hide Japanese singularity text */
-    }
-
     .fake-post-container {
         width: 84px; /* Smaller width for the fake meme twitter container */
         padding: 3px; /* Adjust padding accordingly */
@@ -491,8 +487,79 @@ a, button {
 /* Further adjustments for small devices like iPhone 8 */
 @media only screen and (max-width: 375px) {
     .axiomatic-text {
-        font-size: 8px; /* 20% smaller than the adjusted mobile size */
+        font-size: 9px; /* 20% smaller than the adjusted mobile size */
     }
 }
 
+
+/* Styles for even smaller devices like iPhone SE */
+@media only screen and (max-width: 320px) {
+    #moving-text {
+        font-size: 12px; /* 20% smaller than the current mobile size (18px) */
+        top: 49%; /* Move the text down the screen */
+    }
+
+    .cat-gif {
+        height: 150px; /* 20% smaller than the current mobile size (200px) */
+    }
+
+    .cat-gif-container {
+        top: 340px; /* Move the cat GIF further up the screen */
+    }
+
+    .marquee-jp {
+        bottom: 10%; /* Move the Japanese Katakana text slightly down the screen */
+    }
+
+    .axiomatic-text {
+        font-size: 8px; /* 20% smaller than the current mobile size (10px) */
+        top: 15%; /* Move the axiomatic text down the screen */
+    }
+
+    /* Adjustments for the directory */
+    .retro-directory {
+        margin-top: 5px !important; /* Ensure margin fits the screen */
+    }
+
+    .retro-directory a {
+        font-size: 8px !important; /* Ensure smaller font size for links */
+        padding: -15px !important; /* Reduce padding for compact design */
+        line-height: 1.2; /* Adjust line height for better readability */
+        letter-spacing: -0.5px; /* Reduce space between letters */
+    }
+
+    /* Make 'vkay' text smaller */
+    .vkay-text {
+        font-size: 14px; /* 20% smaller than the original size (20px) */
+    }
+
+    /* Make the Japanese Katakana text smaller */
+    .japanese-text {
+        font-size: 16px; /* 20% smaller than the original size (20px) */
+    }
+    /* Make the fake meme Twitter smaller */
+    .fake-post-container {
+        width: 90px; /* 20% smaller than the current mobile size */
+        padding: 5px; /* Adjust padding accordingly */
+    }
+
+    .profile-pic {
+        width: 22px; /* Smaller profile pic */
+        height: 22px; /* Smaller profile pic */
+        margin-right: 5px;
+    }
+
+    .username {
+        font-size: 6px; /* Smaller text for the username */
+    }
+
+    .handle {
+        font-size: 7px; /* Smaller text for the handle */
+    }
+
+    .fake-post-content {
+        font-size: 5px; /* Smaller content text */
+        line-height: 1.2; /* Adjust line height for better readability */
+    }
+}
 
