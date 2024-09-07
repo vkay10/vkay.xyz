@@ -1,565 +1,151 @@
-/* Base Styles (for Desktop and larger screens) */
-body, html {
-    height: 100%;
+/* Basic reset */
+* {
     margin: 0;
-    font-family: 'Orbitron', sans-serif;
-    background-color: #000;
-    color: #fff;
-    overflow: hidden;
-    position: relative;
-}
-
-#scene-container {
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-
-/* Japanese Text, vkay Text, and Line Design */
-.japanese-line-container {
-    position: fixed;
-    top: 30%;
-    left: calc(50% + 10px);
-    transform: translateX(-50%);
-    text-align: center;
-    z-index: 12;
-}
-
-.japanese-text {
-    font-family: 'Press Start 2P', cursive;
-    font-size: 20px;
-    color: #fff;
-}
-
-.vkay-text {
-    font-family: 'Press Start 2P', cursive;
-    font-size: 20px;
-    color: #fff;
-    margin-top: 10px;
-}
-
-.line-design {
-    width: 500px;
-    border-bottom: 2px dashed #fff;
-    margin: 20px auto;
-}
-
-.text-above-line {
-    text-align: center;
-    margin-bottom: 30px;
-}
-
-/* Adjusted Moving Text for Larger Screens */
-#moving-text {
-    position: fixed;
-    top: 45%; /* Move up the text */
-    left: 50%;
-    transform: translateX(-50%);
-    text-align: center;
-    width: auto;
-    color: #fff;
-    font-family: 'Press Start 2P', cursive;
-    font-size: 18px;
-    z-index: 12;
-}
-
-#moving-text span {
-    display: inline-block;
-    animation: colorChange 6s infinite;
-}
-
-#moving-text span:nth-child(2) {
-    animation-delay: 1s;
-}
-
-#moving-text span:nth-child(3) {
-    animation-delay: 2s;
-}
-
-#moving-text span:nth-child(4) {
-    animation-delay: 3s;
-}
-
-#moving-text span:nth-child(5) {
-    animation-delay: 4s;
-}
-
-@keyframes colorChange {
-    0%, 100% {
-        color: #fff; /* Start and end with white */
-    }
-    25% {
-        color: #ff69b4; /* Pink */
-    }
-    50% {
-        color: #00ffff; /* Cyan */
-    }
-    75% {
-        color: #ff4500; /* OrangeRed */
-    }
-}
-
-.marquee-2 {
-    position: absolute;
-    top: 27%;
-    transform: translateY(-50%);
-    animation: marquee 10s linear infinite;
-    z-index: 11;
-    color: #00ff00;
-    font-weight: bold;
-    font-size: 16px;
-    font-family: 'Press Start 2P', cursive;
-    white-space: nowrap;
-    text-shadow: none;
-}
-
-.marquee-2 span {
-    display: inline-block;
-    padding-left: 100%;
-    animation: marquee 10s linear infinite;
-}
-
-.marquee-jp {
-    position: absolute;
-    bottom: 12%;
-    right: 10%;
-    transform: translateY(50%);
-    z-index: 11;
-    color: #B7410E;
-    font-weight: bold;
-    font-size: 16px;
-    font-family: 'Press Start 2P', cursive;
-    white-space: nowrap;
-    text-shadow: none;
-}
-
-.marquee-cn {
-    position: absolute;
-    bottom: 20%;
-    left: 10%;
-    transform: translateY(50%);
-    z-index: 11;
-    color: #B7410E;
-    font-weight: bold;
-    font-size: 16px;
-    font-family: 'Press Start 2P', cursive;
-    white-space: nowrap;
-    text-shadow: none;
-}
-
-@keyframes marquee {
-    from { transform: translateX(100%); }
-    to { transform: translateX(-100%); }
-}
-
-.retro-text-container {
-    position: fixed;
-    bottom: 10px;
-    left: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    z-index: 12;
-}
-
-.miku-image {
-    width: 80px;
-    height: auto;
-    margin-bottom: 5px;
-}
-
-.retro-text {
-    font-family: 'Press Start 2P', cursive;
-    font-size: 12px;
-    color: #fff;
-}
-
-.retro-directory {
-    position: fixed;
-    top: 10px;
-    left: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    font-family: 'Press Start 2P', cursive;
-    font-size: 12px;
-    z-index: 13;
-}
-
-.retro-directory a {
-    color: #fff;
-    text-decoration: none;
-    margin-bottom: 8px;
-    transition: color 0.3s ease;
-}
-
-.retro-directory a:hover {
-    color: #00ff00;
-}
-
-.fake-post-container {
-    position: fixed;
-    top: 40%;
-    right: 10px;
-    width: 220px;
-    background-color: rgba(0, 0, 0, 0.8);
-    color: #fff;
-    padding: 10px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    z-index: 15;
-    font-family: 'Press Start 2P', cursive;
-}
-
-.fake-post-header {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-}
-
-.profile-pic {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    margin-right: 10px;
-}
-
-.post-info {
-    display: flex;
-    flex-direction: column;
-}
-
-.username {
-    font-weight: bold;
-}
-
-.handle {
-    color: #00ff00;
-    font-size: 12px;
-}
-
-.timestamp {
-    font-size: 10px;
-    color: #888;
-}
-
-.fake-post-content {
-    font-size: 14px;
-    white-space: normal;
-    line-height: 1.5;
-}
-
-.fake-post-content br {
-    display: block;
-    content: "";
-    margin: 5px 0;
-}
-
-.meme-img {
-    width: 100%;
-    border-radius: 5px;
-    margin-top: 10px;
-    display: none;
-}
-
-.marquee-jp:hover {
-    color: #ff69b4;
-    text-shadow: 0 0 10px rgba(255, 105, 180, 0.8);
-    transform: translateY(-50%) scale(1.05); /* Adjusted scaling */
-    transition: color 0.3s ease-in-out, text-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
-}
-
-.marquee-cn:hover {
-    color: #ff4500;
-    text-shadow: 0 0 10px rgba(255, 69, 0, 0.8);
-    transform: translateY(-50%) scale(1.05); /* Adjusted scaling */
-    transition: color 0.3s ease-in-out, text-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
-}
-
-.hover-color {
-    display: inline-block;
-    transition: color 0.3s ease;
-}
-
-.hover-color:nth-child(1):hover { color: #ff0000; }
-.hover-color:nth-child(2):hover { color: #00ff00; }
-.hover-color:nth-child(3):hover { color: #0000ff; }
-.hover-color:nth-child(4):hover { color: #ffff00; }
-.hover-color:nth-child(5):hover { color: #ff00ff; }
-.hover-color:nth-child(6):hover { color: #00ffff; }
-.hover-color:nth-child(7):hover { color: #ff4500; }
-.hover-color:nth-child(8):hover { color: #8a2be2; }
-.hover-color:nth-child(9):hover { color: #00fa9a; }
-.hover-color:nth-child(10):hover { color: #ff1493; }
-
-.vkay-text {
-    font-family: 'Press Start 2P', cursive;
-    font-size: 20px;
-    color: #fff;
-    margin-top: 10px;
-    letter-spacing: normal;
-}
-
-/* Axiomatic Alignment Text */
-.axiomatic-text {
-    font-family: 'Press Start 2P', cursive;
-    font-size: 19px; /* Larger font size for desktop */
-    color: #B7410E;
-    text-align: center;
-    padding: 10px;
-    line-height: 1.5;
-    width: 80%;
-    margin-left: auto;
-    margin-right: auto;
-    position: fixed;
-    top: 3%; /* Ensure it's positioned lower */
-    left: 50%; /* Center horizontally */
-    transform: translate(-50%, 0); /* Center horizontally and maintain vertical position */
-}
-
-/* Mobile Styles (only affecting mobile view) */
-@media only screen and (max-width: 768px) {
-    .axiomatic-text {
-        font-size: 10px; /* Reduced font size by 30% */
-        position: absolute;
-        top: 15%; /* Adjust position to be slightly higher */
-        left: 50%;
-        transform: translateX(-50%);
-        width: 80%; /* Ensure it's centered and fits within mobile screens */
-    }
-
-    .cat-gif-container {
-        position: absolute;
-        top: 440px; /* Position at the top of the screen for mobile */
-        left: 50%;
-        transform: translateX(-50%);
-    }
-
-    .cat-gif {
-        height: 200px;
-    }
-
-    .marquee-cn {
-        display: none;
-    }
-
-    .marquee-jp {
-        left: 50%;
-        right: auto;
-        transform: translateX(-50%) translateY(50%);
-    }
-
-    /* Dynamic color change for the moving text */
-    #moving-text span {
-        display: inline-block;
-        animation: colorChange 6s infinite;
-    }
-
-    #moving-text span:nth-child(2) {
-        animation-delay: 1s;
-    }
-
-    #moving-text span:nth-child(3) {
-        animation-delay: 2s;
-    }
-
-    #moving-text span:nth-child(4) {
-        animation-delay: 3s;
-    }
-
-    #moving-text span:nth-child(5) {
-        animation-delay: 4s;
-    }
-
-    @keyframes colorChange {
-        0%, 100% {
-            color: #fff; /* Start and end with white */
-        }
-        25% {
-            color: #ff69b4; /* Pink */
-        }
-        50% {
-            color: #00ffff; /* Cyan */
-        }
-        75% {
-            color: #ff4500; /* OrangeRed */
-        }
-    }
-
-    .fake-post-container {
-        position: fixed;
-        bottom: 10px; /* Positioned at the bottom */
-        right: 10px; /* Positioned at the right */
-        width: 120px; /* Slightly smaller width */
-        padding: 4px; /* Slightly smaller padding */
-        z-index: 14;
-        top: auto; /* Reset top positioning */
-        transform: translateY(0); /* Ensure it's fully positioned to the right */
-    }
-
-    .profile-pic {
-        width: 35px; /* Smaller profile pic */
-        height: 35px; /* Smaller profile pic */
-        margin-right: 4px;
-    }
-
-    .username {
-        font-size: 10px; /* Smaller text for the username */
-    }
-
-    .handle {
-        font-size: 8px; /* Smaller text for the handle */
-    }
-
-    .fake-post-content {
-        font-size: 9px; /* Smaller text for "Today's vibe... E/acc" */
-    }
-
-    .meme-img {
-        display: none;
-    }
-}
-
-/* Desktop Styles (only affecting larger screens) */
-@media only screen and (min-width: 769px) {
-    .cat-gif-container {
-        position: absolute;
-        bottom: 10px; /* Position at the bottom of the screen for desktop */
-        left: 50%;
-        transform: translateX(-50%);
-    }
-
-    .cat-gif {
-        height: 262.5px; /* 70% of the previously set size (375px * 0.7) */
-    }
-
-    .marquee-jp {
-        bottom: 20%; /* Adjust position to move up on larger screens */
-    }
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-    cursor: url('cursor1.png'), auto;
+    font-family: 'Playfair Display', serif;
+    color: #333;
+    background-color: white;
+    line-height: 1.6;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Align content to start of the page */
+    align-items: center;
+    min-height: 100vh;
 }
 
-/* Optional: You can apply different cursors to specific elements */
-a, button {
-    cursor: url('cursor1.png'), pointer;
+header {
+    width: 100%;
+    text-align: center;
+    margin-top: 2rem;
+    position: relative;
 }
 
-/* Desktop Styles (only affecting larger screens) */
-@media only screen and (min-width: 769px) {
-    .marquee-2 {
-        top: 23%; /* Adjust the position as needed */
+/* Container for the fly image and moving text */
+.fly-image-container {
+    position: absolute;
+    top: -15px; /* Move it down a little */
+    left: -20px; /* Adjust the left position */
+    width: 150px; /* Set width for the container */
+    height: 150px; /* Set height for the container */
+    z-index: 1; /* Ensure it appears behind the title */
+}
+
+.fly-image {
+    width: 100%;
+    height: auto;
+    z-index: 1;
+}
+
+.title-container {
+    display: flex;
+    justify-content: space-between; /* This will push the spans to opposite ends */
+    align-items: center; /* Vertically align the text and the line */
+    font-size: 2.5rem;
+    font-weight: 700;
+    font-style: italic;
+    width: 100%; /* Ensure the header spans the full width */
+    position: relative;
+    z-index: 2; /* Ensure the title is above the image */
+}
+
+header p {
+    font-size: 1.2rem;
+    font-weight: 400;
+    font-style: italic;
+    max-width: 80%;
+    margin: 20px auto;
+}
+
+/* Container for lain image */
+.lain-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.lain-inner-container {
+    position: relative;
+    display: inline-block;
+    max-width: 100%; /* Ensure it doesn't exceed the screen width */
+}
+
+/* Ensure the lain image stays centered and is 30% larger */
+.lain-image {
+    display: block;
+    width: 100%; /* Set to fill the container */
+    max-width: 780px; /* Increased by 30% from 600px */
+    height: auto;
+    margin: 0 auto;
+    position: relative;
+}
+
+/* Retro moving text inside lain image */
+.singularity-text {
+    position: absolute;
+    color: #00ff00; /* Retro green color */
+    font-family: 'Courier New', Courier, monospace; /* Retro font, or P2Play if available */
+    font-size: 14px;
+    white-space: nowrap; /* Prevent text from wrapping */
+    animation: move-text 12s infinite alternate; /* Slow down the animation */
+    z-index: 2; /* Ensure it stays on top of the lain image */
+    top: 20%; /* Moved down by 20% */
+    left: 0; /* Align to the container */
+    width: 100%; /* Keep within the image */
+    height: 100%; /* Constrain the text within the image */
+}
+
+/* Constrained animation to move text around within the lain image */
+@keyframes move-text {
+    0% {
+        top: 40%; /* Start at 40% to reflect the 20% shift down */
+        left: 20%;
+    }
+    25% {
+        top: 40%;
+        left: 60%; /* Move to 60% instead of the full width */
+    }
+    50% {
+        top: 80%; /* Constrained to 80% height with 20% shift */
+        left: 60%;
+    }
+    75% {
+        top: 80%;
+        left: 20%; /* Move back to the left but within the image */
+    }
+    100% {
+        top: 40%; /* Return to the top at 40% */
+        left: 20%;
     }
 }
 
-/* Styles for small devices like iPhone 8 */
-@media only screen and (max-width: 375px) {
-    .cat-gif {
-        height: 140px; /* 30% smaller than the current mobile size */
-    }
 
-    .fake-post-container {
-        width: 84px; /* Smaller width for the fake meme twitter container */
-        padding: 3px; /* Adjust padding accordingly */
-    }
 
-    .profile-pic {
-        width: 25px; /* Adjust the profile pic size in the fake meme twitter */
-        height: 25px;
-    }
-
-    .username, .handle {
-        font-size: 8px; /* Smaller text sizes for username and handle */
-    }
-
-    .fake-post-content {
-        font-size: 7px; /* Smaller content text */
-    }
+nav ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
 }
 
-/* Further adjustments for small devices like iPhone 8 */
-@media only screen and (max-width: 375px) {
-    .axiomatic-text {
-        font-size: 9px; /* 20% smaller than the adjusted mobile size */
-    }
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 1.2rem;
+    font-style: italic;
 }
 
-
-/* Styles for even smaller devices like iPhone SE */
-@media only screen and (max-width: 320px) {
-    #moving-text {
-        font-size: 12px; /* 20% smaller than the current mobile size (18px) */
-        top: 49%; /* Move the text down the screen */
-    }
-
-    .cat-gif {
-        height: 150px; /* 20% smaller than the current mobile size (200px) */
-    }
-
-    .cat-gif-container {
-        top: 340px; /* Move the cat GIF further up the screen */
-    }
-
-    .marquee-jp {
-        bottom: 10%; /* Move the Japanese Katakana text slightly down the screen */
-    }
-
-    .axiomatic-text {
-        font-size: 8px; /* 20% smaller than the current mobile size (10px) */
-        top: 15%; /* Move the axiomatic text down the screen */
-    }
-
-    /* Adjustments for the directory */
-    .retro-directory {
-        margin-top: 5px !important; /* Ensure margin fits the screen */
-    }
-
-    .retro-directory a {
-        font-size: 8px !important; /* Ensure smaller font size for links */
-        padding: -15px !important; /* Reduce padding for compact design */
-        line-height: 1.2; /* Adjust line height for better readability */
-        letter-spacing: -0.5px; /* Reduce space between letters */
-    }
-
-    /* Make 'vkay' text smaller */
-    .vkay-text {
-        font-size: 14px; /* 20% smaller than the original size (20px) */
-    }
-
-    /* Make the Japanese Katakana text smaller */
-    .japanese-text {
-        font-size: 16px; /* 20% smaller than the original size (20px) */
-    }
-    /* Make the fake meme Twitter smaller */
-    .fake-post-container {
-        width: 90px; /* 20% smaller than the current mobile size */
-        padding: 5px; /* Adjust padding accordingly */
-    }
-
-    .profile-pic {
-        width: 22px; /* Smaller profile pic */
-        height: 22px; /* Smaller profile pic */
-        margin-right: 5px;
-    }
-
-    .username {
-        font-size: 6px; /* Smaller text for the username */
-    }
-
-    .handle {
-        font-size: 7px; /* Smaller text for the handle */
-    }
-
-    .fake-post-content {
-        font-size: 5px; /* Smaller content text */
-        line-height: 1.2; /* Adjust line height for better readability */
-    }
+footer p {
+    text-align: center;
+    font-style: italic;
+    position: relative;
+    bottom: 0;
+    width: 100%;
 }
 
