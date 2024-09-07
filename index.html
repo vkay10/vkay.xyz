@@ -5,38 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>S-1: A Self-Organizing Network</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="s.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- Original fly image at top left -->
+    <div class="fly-image-container-left">
+        <img src="fly.png" alt="Fly image" class="fly-image">
+    </div>
+
+    <!-- Mirrored fly image at top right -->
+    <div class="fly-image-container-right">
+        <img src="fly.png" alt="Fly image mirrored" class="fly-image flipped">
+    </div>
+    
     <header>
-        <!-- Adding the fly image to the top left, overlapping the left title -->
-        <div class="fly-image-container">
-            <img src="fly.png" alt="Fly image" class="fly-image">
-        </div>
-        
         <h1 class="title-container">
             <span class="left-title">S-1 is the Self-Organizing</span>
             <span class="right-title">Human-Machine Network</span>
         </h1>
-        <p>Integrating Network States, Decentralized AI, and Cryptographic Primitives within Parallel Economies</p>
+        <p class="subtitle">
+            <span id="dynamic-subtitle"></span>
+        </p>
     </header>
     
-    <main>
-        <div class="lain-container">
-            <img src="lain1.png" alt="Descriptive Alt Text" class="lain-image">
-            <!-- Retro-style moving text within the lain image -->
-            <div class="singularity-text">Singularity 1.048596</div>
-        </div>
+    <main class="lain-container">
+        <img src="lain1.png" alt="Descriptive Alt Text" class="lain-image">
     </main>
-    
-    <nav>
-        <ul>
-        </ul>
-    </nav>
-    
+
+    <!-- Abstract Section -->
+    <section id="abstract-section" class="abstract-section">
+        <h2>ABSTRACT</h2>
+        <p>The convergence of autonomous governance systems with decentralized artificial intelligence presents an opportunity for the fundamental reshaping of legacy socio-economic structures. This paper introduces S-1, a model for a self-organizing human-machine network that integrates network states, decentralized AI (de-AI), and cryptographic primitives within a framework of parallel economies. The Network State, a digital-first community governed by decentralized systems that can eventually acquire and crowdfund physical territory, serves as the foundational layer upon which all governance and socio-economic functions rest.</p>
+    </section>
+
     <footer>
         <p>© 2024 S-1. All rights reserved.</p>
     </footer>
+
+    <!-- JavaScript for Typewriter Effect -->
+    <script src="script.js"></script>
 </body>
 </html>
+
 
