@@ -66,21 +66,11 @@ main img {
     position: relative;
 }
 
-/* Scroll-triggered effects for the first section */
-header, main {
-    transition: all 0.5s ease; /* Smooth transition */
-}
-
-body.scrolled header, body.scrolled main {
-    filter: blur(5px); /* Adds blur as you scroll down */
-    background-color: rgba(0, 0, 0, 0.7); /* Darkens the top section */
-}
-
 /* Abstract Section */
 .abstract-section {
     width: 100%;
     padding: 60px 20px;
-    background-color: white; /* Changed from gray to white */
+    background-color: white; 
     color: #333;
     text-align: center;
 }
@@ -121,4 +111,13 @@ body.scrolled header, body.scrolled main {
     transform: scaleX(-1); /* Flip the image horizontally */
 }
 
-
+/* Media query for iPhone 14 or larger phones */
+@media screen and (max-width: 430px) {
+    .title-container {
+        font-size: 85%; /* Reduce title size by 30% */
+    }
+    
+    main img {
+        margin-top: 20px; /* Move the Lain image down */
+    }
+}
