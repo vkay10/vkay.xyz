@@ -10,143 +10,115 @@ body {
     color: #333;
     background-color: white;
     line-height: 1.6;
-    padding: 20px;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start; /* Align content to start of the page */
+    justify-content: flex-start;
     align-items: center;
     min-height: 100vh;
+    overflow-x: hidden;
 }
 
+/* Header and Main Section Styling */
 header {
     width: 100%;
     text-align: center;
-    margin-top: 2rem;
-    position: relative;
-}
-
-/* Container for the fly image and moving text */
-.fly-image-container {
-    position: absolute;
-    top: -15px; /* Move it down a little */
-    left: -20px; /* Adjust the left position */
-    width: 150px; /* Set width for the container */
-    height: 150px; /* Set height for the container */
-    z-index: 1; /* Ensure it appears behind the title */
-}
-
-.fly-image {
-    width: 100%;
-    height: auto;
-    z-index: 1;
+    margin-top: 0;
+    padding-top: 20px;
 }
 
 .title-container {
     display: flex;
-    justify-content: space-between; /* This will push the spans to opposite ends */
-    align-items: center; /* Vertically align the text and the line */
+    justify-content: space-between;
+    align-items: center;
     font-size: 2.5rem;
     font-weight: 700;
     font-style: italic;
-    width: 100%; /* Ensure the header spans the full width */
-    position: relative;
-    z-index: 2; /* Ensure the title is above the image */
+    width: 100%;
+    padding: 0 20px;
+    box-sizing: border-box;
 }
 
-header p {
+.subtitle {
     font-size: 1.2rem;
     font-weight: 400;
     font-style: italic;
     max-width: 80%;
-    margin: 20px auto;
+    margin: 40px auto; /* Moved down slightly */
+    text-align: center;
 }
 
-/* Container for lain image */
-.lain-container {
+/* Lain image container */
+main {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
-    margin: 0 auto;
-}
-
-.lain-inner-container {
+    flex-grow: 1;
     position: relative;
-    display: inline-block;
-    max-width: 100%; /* Ensure it doesn't exceed the screen width */
+    margin-bottom: 40px; /* Space between Lain image and Abstract */
 }
 
-/* Ensure the lain image stays centered and is 30% larger */
-.lain-image {
-    display: block;
-    width: 100%; /* Set to fill the container */
-    max-width: 780px; /* Increased by 30% from 600px */
+main img {
+    max-width: 50%;
     height: auto;
+    display: block;
     margin: 0 auto;
     position: relative;
 }
 
-/* Retro moving text inside lain image */
-.singularity-text {
-    position: absolute;
-    color: #00ff00; /* Retro green color */
-    font-family: 'Courier New', Courier, monospace; /* Retro font, or P2Play if available */
-    font-size: 14px;
-    white-space: nowrap; /* Prevent text from wrapping */
-    animation: move-text 12s infinite alternate; /* Slow down the animation */
-    z-index: 2; /* Ensure it stays on top of the lain image */
-    top: 20%; /* Moved down by 20% */
-    left: 0; /* Align to the container */
-    width: 100%; /* Keep within the image */
-    height: 100%; /* Constrain the text within the image */
+/* Scroll-triggered effects for the first section */
+header, main {
+    transition: all 0.5s ease; /* Smooth transition */
 }
 
-/* Constrained animation to move text around within the lain image */
-@keyframes move-text {
-    0% {
-        top: 40%; /* Start at 40% to reflect the 20% shift down */
-        left: 20%;
-    }
-    25% {
-        top: 40%;
-        left: 60%; /* Move to 60% instead of the full width */
-    }
-    50% {
-        top: 80%; /* Constrained to 80% height with 20% shift */
-        left: 60%;
-    }
-    75% {
-        top: 80%;
-        left: 20%; /* Move back to the left but within the image */
-    }
-    100% {
-        top: 40%; /* Return to the top at 40% */
-        left: 20%;
-    }
+body.scrolled header, body.scrolled main {
+    filter: blur(5px); /* Adds blur as you scroll down */
+    background-color: rgba(0, 0, 0, 0.7); /* Darkens the top section */
 }
 
-
-
-nav ul {
-    list-style-type: none;
-    display: flex;
-    justify-content: space-around;
-    margin-top: 20px;
-}
-
-nav ul li a {
-    text-decoration: none;
-    color: #333;
-    font-size: 1.2rem;
-    font-style: italic;
-}
-
-footer p {
-    text-align: center;
-    font-style: italic;
-    position: relative;
-    bottom: 0;
+/* Abstract Section */
+.abstract-section {
     width: 100%;
+    padding: 60px 20px;
+    background-color: white; /* Changed from gray to white */
+    color: #333;
+    text-align: center;
+}
+
+.abstract-section h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.abstract-section p {
+    max-width: 800px;
+    margin: 0 auto 20px;
+    line-height: 1.8;
+}
+
+/* Fly image containers and mirrored fly on the right */
+.fly-image-container-left, .fly-image-container-right {
+    position: absolute;
+    top: 15px;
+    z-index: 1000;
+}
+
+.fly-image-container-left {
+    left: 10px;
+}
+
+.fly-image-container-right {
+    right: 10px;
+}
+
+.fly-image {
+    width: 130px;
+    height: auto;
+    opacity: 0.8;
+}
+
+.fly-image.flipped {
+    transform: scaleX(-1); /* Flip the image horizontally */
 }
 
 
