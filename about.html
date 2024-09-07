@@ -3,283 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap">
-    <title>About Me</title>
-    <style>
-        body, html {
-            height: 100%;
-            margin: 0;
-            font-family: 'Press Start 2P', cursive; /* Retro pixelated font */
-            background-color: #000; /* Black background */
-            color: #fff; /* White text color */
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            padding: 20px;
-            box-sizing: border-box;
-            position: relative;
-        }
-
-        .about-container {
-            font-size: 14px;
-            margin-bottom: 50px;
-            line-height: 1.6; /* Increased line height for readability */
-            max-width: 800px;
-        }
-
-        .retro-directory {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-top: -20px; /* Adjusted margin-top to move boxes up */
-        }
-
-        .retro-directory-item {
-            font-size: 14px; /* Reduced font size for smaller boxes */
-            color: #B7410E; /* Brick red color */
-            margin-bottom: 10px; /* Reduced margin for a tighter layout */
-            border: 2px solid #B7410E; /* Border to highlight the section */
-            padding: 6px; /* Reduced padding for smaller boxes */
-            width: 100%;
-            max-width: 400px; /* Further reduced max-width for smaller boxes */
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .retro-directory-item a {
-            color: inherit;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .retro-directory-item a:hover {
-            color: #fff; /* Change text color on hover */
-        }
-
-        .retro-directory-item::before, .retro-directory-item::after {
-            content: '';
-            position: absolute;
-            height: 100%;
-            width: 100%;
-            top: 0;
-            left: 0;
-            background: rgba(255, 255, 255, 0.1);
-            transform: translateX(-100%) skewX(-15deg);
-            transition: transform 0.5s ease;
-        }
-
-        .retro-directory-item::after {
-            background: rgba(255, 255, 255, 0.2);
-            transform: translateX(100%) skewX(15deg);
-        }
-
-        .retro-directory-item:hover::before {
-            transform: translateX(100%) skewX(-15deg);
-        }
-
-        .retro-directory-item:hover::after {
-            transform: translateX(-100%) skewX(15deg);
-        }
-
-        .retro-directory-item:hover {
-            color: #000; /* Change text color on hover */
-            background: #fff; /* White background on hover */
-        }
-
-        .retro-button {
-            font-family: 'Press Start 2P', cursive;
-            font-size: 10px;
-            padding: 10px 20px;
-            color: #fff; /* White text color */
-            background: transparent;
-            border: 2px solid #fff; /* White border for contrast */
-            text-decoration: none;
-            letter-spacing: 2px;
-            position: relative;
-            overflow: hidden;
-            cursor: pointer;
-            transition: color 0.3s ease;
-            box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.5);
-            margin-top: auto; /* Push the button to the bottom */
-            display: flex;
-            justify-content: center; /* Center text horizontally */
-            align-items: center; /* Center text vertically */
-            height: 50px; /* Fixed height for the button */
-            line-height: 1; /* Ensure the line-height does not affect centering */
-        }
-
-        .retro-button::before, .retro-button::after {
-            content: '';
-            position: absolute;
-            height: 100%;
-            width: 100%;
-            top: 0;
-            left: 0;
-            background: rgba(255, 255, 255, 0.1); /* Lighter background for better visibility */
-            transform: translateX(-100%) skewX(-15deg);
-            transition: transform 0.5s ease;
-        }
-
-        .retro-button::after {
-            background: rgba(255, 255, 255, 0.2);
-            transform: translateX(100%) skewX(15deg);
-        }
-
-        .retro-button:hover::before {
-            transform: translateX(100%) skewX(-15deg);
-        }
-
-        .retro-button:hover::after {
-            transform: translateX(-100%) skewX(15deg);
-        }
-
-        .retro-button:hover {
-            color: #000; /* Black text on hover */
-            background: #fff; /* White background on hover */
-        }
-
-        .pokemon-gif {
-            position: absolute;
-            width: 120px; /* Increased size */
-            height: 120px; /* Increased size */
-            object-fit: cover;
-            z-index: 1;
-        }
-
-        .pokemon-left {
-            left: 10px;
-        }
-
-        .pokemon-right {
-            right: 10px;
-        }
-
-        .pokemon-bottom {
-            bottom: 260px; /* Moved up from 50px to 100px */
-        }
-
-        .pokemon1 {
-            transform: translateY(0);
-        }
-
-        .pokemon2 {
-            transform: translateY(130px);
-        }
-
-        .pokemon3 {
-            transform: translateY(260px);
-        }
-
-        /* Mobile Styles */
-        @media only screen and (max-width: 768px) {
-            .about-container {
-                font-size: 9.8px; /* 30% smaller than the original 14px */
-            }
-
-            .retro-directory-item {
-                font-size: 9.8px; /* 30% smaller than the original 14px */
-            }
-
-            .retro-directory {
-                margin-top: -40px; /* Move items closer to the top */
-            }
-
-            .retro-button {
-                font-size: 10px; /* 30% smaller than the original 16px */
-            }
-
-            .pokemon-gif {
-                display: none; /* Hide GIFs on mobile */
-            }
-        }
-
-        /* Large iPhone Screens (e.g., iPhone 11, 12, 13) */
-        @media only screen and (min-width: 376px) and (max-width: 768px) {
-            .retro-button {
-                font-size: 8px; /* Slightly smaller font size */
-                padding: 8px 18px; /* Slightly reduced padding */
-                height: 45px; /* Slightly reduced height */
-            }
-        }
-
-        /* iPhone 8 Specific Styles */
-        @media only screen and (max-width: 375px) {
-            .about-container {
-                font-size: 9px; /* 20% smaller than the 9.8px set for other mobiles */
-            }
-
-            .retro-directory-item {
-                font-size: 7.8px; /* 20% smaller than the 9.8px set for other mobiles */
-            }
-
-            .retro-button {
-                font-size: 8px; /* 20% smaller than the 10px set for other mobiles */
-            }
-
-            .retro-directory {
-                margin-top: -30px; /* Move items down for iPhone 8 */
-            }
-        }
-
-        /* Styles for even smaller devices like iPhone SE */
-        @media only screen and (max-width: 320px) {
-            .about-container {
-                font-size: 7.2px; /* Further reduce the font size */
-                margin-bottom: 40px; /* Adjust the margin for smaller screens */
-            }
-
-            .retro-directory-item {
-                font-size: 6.4px; /* Further reduce the font size */
-                padding: 4.8px; /* Reduce padding */
-            }
-
-            .retro-button {
-                font-size: 6.4px; /* Further reduce the font size */
-                padding: 8px 16px; /* Adjust button padding */
-                height: 40px; /* Reduce button height */
-            }
-
-            .retro-directory {
-                margin-top: -20px; /* Adjust margin to move items slightly down */
-            }
-        }
-    </style>
+    <title>S-1: A Self-Organizing Network</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="s.css">
 </head>
 <body>
-    <div class="about-container">
-        <p>Hi! I’m vkay, a 20-year-old university student. I created this website as a hub for my interests in AI and philosophy. I’m particularly drawn to accelerationism, post-labor economics, existentialism, and the concept of the technological singularity.</p>
-        <p>I am an accelerationist at heart, and believe that technology can drive radical societal transformation. My ultimate goal is to help guide human civilization toward a technological utopia, or at least contribute to it—though we may not even know what a utopia truly is, or if it even exists. Admittedly, this might sound unrealistic, but I’m committed to pushing humanity forward, whatever that may look like.</p>
-    </div>
-
-    <!-- Retro Directory -->
-    <div class="retro-directory">
-        <div class="retro-directory-item">
-            <a href="https://en.wikipedia.org/wiki/Steins;Gate_(TV_series)" target="_blank">My favorite show is: Steins;Gate</a>
+    <header>
+        <!-- Adding the fly image to the top left, overlapping the left title -->
+        <div class="fly-image-container">
+            <img src="fly.png" alt="Fly image" class="fly-image">
         </div>
-        <div class="retro-directory-item">
-            <a href="https://www.truity.com/blog/personality-type/intj" target="_blank">My MBTI is: INTJ</a>
+        
+        <h1 class="title-container">
+            <span class="left-title">S-1 is the Self-Organizing</span>
+            <span class="right-title">Human-Machine Network</span>
+        </h1>
+        <p>Integrating Network States, Decentralized AI, and Cryptographic Primitives within Parallel Economies</p>
+    </header>
+    
+    <main>
+        <div class="lain-container">
+            <img src="lain1.png" alt="Descriptive Alt Text" class="lain-image">
+            <!-- Retro-style moving text within the lain image -->
+            <div class="singularity-text">Singularity 1.048596</div>
         </div>
-        <div class="retro-directory-item">
-            <a href="https://www.google.com/search?q=countdown+to+16+october+2027" target="_blank">My timeline for AGI is: 16/10/2027</a>
-        </div>
-        <div class="retro-directory-item">
-            <a href="#">Languages I speak: English, Japanese, German</a>
-        </div>
-        <div class="retro-directory-item">
-            <a href="#">My degree is: BSc Computer Science with a focus on ML, graduating 2026</a>
-        </div>
-    </div>
-
-    <a href="index.html" class="retro-button">Back to Home</a>
-
-    <!-- GIFs for desktop/larger screens -->
-    <img src="madoka.gif" alt="Madoka" class="pokemon-gif pokemon-left pokemon-bottom pokemon1">
-    <img src="madoka2.gif" alt="Madoka2" class="pokemon-gif pokemon-left pokemon-bottom pokemon2">
-    <img src="madoka3.gif" alt="Madoka3" class="pokemon-gif pokemon-left pokemon-bottom pokemon3">
-    <img src="madoka4.gif" alt="Madoka4" class="pokemon-gif pokemon-right pokemon-bottom pokemon1">
-    <img src="madoka5.gif" alt="Madoka5" class="pokemon-gif pokemon-right pokemon-bottom pokemon2">
-    <img src="madoka6.gif" alt="Madoka6" class="pokemon-gif pokemon-right pokemon-bottom pokemon3">
+    </main>
+    
+    <nav>
+        <ul>
+        </ul>
+    </nav>
+    
+    <footer>
+        <p>© 2024 S-1. All rights reserved.</p>
+    </footer>
 </body>
 </html>
