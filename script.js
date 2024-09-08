@@ -85,3 +85,27 @@ document.getElementById('fireButton').addEventListener('click', function() {
 });
 
 
+// Detect scrolling and gradually reduce the Lain image's opacity
+window.addEventListener('scroll', function() {
+    const scrollPosition = window.scrollY;
+    const body = document.body;
+    const abstractSection = document.getElementById('abstract-section').offsetTop;
+    const fadeStart = abstractSection; // Start fading out near the abstract section
+    const fadeEnd = abstractSection + 200; // Complete fade-out 200px past the abstract
+
+    // Calculate opacity based on scroll position relative to the abstract section
+    if (scrollPosition > fadeStart && scrollPosition < fadeEnd) {
+        const opacity = 1 - (scrollPosition - fadeStart) / (fadeEnd - fadeStart);
+        document.querySelector('main img').style.opacity = opacity;
+    } else if (scrollPosition >= fadeEnd) {
+        document.querySelector('main img').style.opacity = 0; // Fully faded out
+        body.classList.add('scrolled');
+    } else {
+        document.querySelector('main img').style.opacity = 1; // Fully visible
+        body.classList.remove('scrolled');
+    }
+});
+
+
+
+
