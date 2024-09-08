@@ -404,3 +404,52 @@ main img {
 
 
 
+
+
+
+
+/* General content section styling */
+.content-section {
+    width: 100%;
+    padding: 80px 20px; /* Spacing around the section */
+    background-color: white;
+    color: #333;
+    text-align: center; /* Ensure text is centered */
+    font-size: 1.1rem; /* Adjusted slightly smaller default font size */
+    line-height: 1.8;
+}
+
+.content-section p {
+    max-width: 800px; /* Ensure the text does not stretch too wide */
+    margin: 0 auto;
+}
+
+/* Add space below the section for more scroll room */
+.content-section::after {
+    content: '';
+    display: block;
+    height: 200px; /* Adds space below the section */
+}
+
+/* Media query for iPhone 14 or larger phones */
+@media screen and (max-width: 430px) {
+    .content-section {
+        padding: 60px 15px;
+    }
+    .content-section p {
+        font-size: 1rem; /* Reduce font size for iPhone 14 */
+    }
+}
+
+/* Media query for iPhone 8 or smaller phones */
+@media screen and (max-width: 375px) {
+    .content-section {
+        padding: 50px 10px;
+    }
+    .content-section p {
+        font-size: 0.9rem; /* Reduce font size further for iPhone 8 */
+    }
+}
+
+
+
