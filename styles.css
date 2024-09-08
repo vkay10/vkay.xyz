@@ -115,6 +115,10 @@ main img {
     transform: scaleX(-1); /* Flip the image horizontally */
 }
 
+
+
+
+
 /* Media query for iPhone 14 or larger phones */
 @media screen and (max-width: 430px) {
     .title-container {
@@ -123,7 +127,15 @@ main img {
     }
 
     .subtitle {
-        margin-top: 25px; /* Adjust the spacing below the title */
+        position: absolute; /* Position it absolutely so it doesn't affect other elements */
+        top: 30%; /* Move it down to 30% from the top */
+        left: 50%;
+        transform: translateX(-50%); /* Center horizontally */
+        width: 80%; /* Ensure it doesn't overflow horizontally */
+        margin-top: 0; /* Remove any margin that pushes content down */
+        font-size: 1rem; /* Adjust size for readability */
+        text-align: center;
+        z-index: 10; /* Keep it above other content */
     }
 
     /* Adjust Lain image for mobile phones */
@@ -133,7 +145,7 @@ main img {
         display: block;
         margin: 0 auto;
         position: fixed; /* Fix the Lain image in place */
-        top: 60%; /* Move the image down */
+        top: 70%; /* Move the image further down */
         left: 50%; /* Center it horizontally */
         transform: translate(-50%, -60%); /* Adjust to ensure it's perfectly centered and moved down */
         z-index: -1; /* Keeps the image behind the text */
@@ -149,11 +161,9 @@ main img {
     /* Fix the abstract section to stay in its position */
     .abstract-section {
         position: relative; /* Ensure it doesn't move */
-        margin-top: 200px; /* Adjust to leave more space above the abstract */
+        margin-top: 400px; /* Leave more space above the abstract */
     }
 }
-
-
 
 /* Media query for smaller phones like iPhone 8 */
 @media screen and (max-width: 375px) {
@@ -163,14 +173,22 @@ main img {
     }
 
     .subtitle {
-        margin-top: 20px; /* Adjust the spacing below the title for smaller screens */
+        position: absolute; /* Keep the subtitle from affecting layout */
+        top: 30%; /* Move it down to 30% from the top */
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%;
+        margin-top: 0;
+        font-size: 0.9rem; /* Adjust font size for smaller screens */
+        text-align: center;
+        z-index: 10;
     }
 
     /* Adjust Lain image specifically for smaller phones */
     main img {
         max-width: 75%; /* Slightly larger image for smaller screens */
         position: fixed; /* Keep the image fixed during scrolling */
-        top: 65%; /* Move the image further down */
+        top: 75%; /* Move the image further down */
         left: 50%; /* Center it horizontally */
         transform: translate(-50%, -50%); /* Adjust to ensure it's perfectly centered */
         z-index: -1; /* Keeps the image behind the text */
@@ -178,10 +196,35 @@ main img {
 
     /* Adjust the abstract section to be more suitable for smaller screens */
     .abstract-section {
-        margin-top: 180px; /* Slightly less space above the abstract */
+        margin-top: 380px; /* More space above the abstract */
         padding-top: 10px; /* Less padding for better spacing */
     }
 }
+
+/* Media query for iPhone 14 or larger phones */
+@media screen and (max-width: 430px) {
+    .abstract-section p {
+        font-size: 90%; /* Reduce font size by 10% */
+    }
+}
+
+/* Media query for iPhone 8 or smaller phones */
+@media screen and (max-width: 375px) {
+    .abstract-section p {
+        font-size: 85%; /* Reduce font size by 15% */
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
 
 #fireButton {
     background-color: #b22222; /* brick red tone */
@@ -358,7 +401,6 @@ main img {
         transition: opacity 0.5s ease-out; /* Smooth fade-out effect if needed */
     }
 }
-
 
 
 
