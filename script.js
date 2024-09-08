@@ -31,7 +31,7 @@ function typeWriterEffect(text, element, speed) {
     type();
 }
 
-// Function to add "..." at the end dynamically, and repeat typewriter after 3 cycles
+// Function to add "..." at the end dynamically, and repeat typewriter after 5 cycles
 function addEllipsis(element) {
     let dots = 0;
     let cycleCount = 0;
@@ -46,13 +46,14 @@ function addEllipsis(element) {
             cycleCount++;
         }
 
-        // Once the ellipsis has cycled 3 times, clear the interval and restart typing
-        if (cycleCount === 3) {
+        // Once the ellipsis has cycled 5 times, clear the interval and restart typing
+        if (cycleCount === 5) {  // Changed from 3 to 5 cycles
             clearInterval(ellipsisInterval); // Stop the ellipsis animation
             setTimeout(() => typeWriterEffect(subtitleText, element, typingSpeed), 1000); // Restart the typewriter effect
         }
     }, 500); // Speed of the ellipsis
 }
+
 
 // Call the typewriter effect when the page loads
 window.onload = () => {
@@ -73,3 +74,14 @@ window.addEventListener('scroll', function() {
         body.classList.remove('scrolled');
     }
 });
+
+document.getElementById('fireButton').addEventListener('click', function() {
+    window.scrollTo({
+        top: document.body.scrollHeight,
+        behavior: 'smooth' // For a smoother scrolling
+    });
+
+    document.getElementById('footer').style.display = 'block'; // Show the footer links
+});
+
+
