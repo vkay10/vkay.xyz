@@ -329,24 +329,34 @@ a {
 }
 
 
-/* Adjust Lain image for mobile phones */
+/* Lain image for desktop/laptop view */
 main img {
-    max-width: 80%;
+    max-width: 50%; /* Restore original size for desktop/laptop */
     height: auto;
     display: block;
     margin: 0 auto;
-    position: fixed; /* Keep the image fixed in place */
-    top: 60%; /* Adjust to ensure it's vertically aligned */
-    left: 50%; /* Center it horizontally */
-    transform: translate(-50%, -60%); /* Adjust to ensure it's perfectly centered */
-    z-index: -1; /* Keeps the image behind the text */
-    opacity: 1; /* Start fully visible */
-    transition: opacity 0.5s ease-out; /* Smooth fade-out effect */
+    margin-top: 20px; /* Adjust as needed to move the image down */
+    position: relative; /* Restore original position for desktop/laptop */
+    z-index: 0; /* Image stays behind the subtitle */
+    opacity: 1; /* Always fully visible */
 }
 
-/* Fade out Lain image as the user scrolls down to the next section */
-body.scrolled-to-next-section main img {
-    opacity: 0; /* Lain fades out */
+/* Media query for iPhone 14 or larger phones (430px wide or smaller) */
+@media screen and (max-width: 430px) {
+    /* Adjust Lain image for mobile phones */
+    main img {
+        max-width: 80%; /* Adjust size for mobile */
+        height: auto;
+        display: block;
+        margin: 0 auto;
+        position: fixed; /* Fix the image for mobile scrolling */
+        top: 60%; /* Move the image down */
+        left: 50%; /* Center it horizontally */
+        transform: translate(-50%, -60%); /* Ensure it's centered */
+        z-index: -1; /* Keep it behind the text */
+        opacity: 1; /* Always visible */
+        transition: opacity 0.5s ease-out; /* Smooth fade-out effect if needed */
+    }
 }
 
 
