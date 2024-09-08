@@ -158,3 +158,70 @@ main img {
 }
 
 }
+
+/* Media query for smaller phones like iPhone 8 */
+@media screen and (max-width: 375px) {
+    .title-container {
+        font-size: 1.6rem; /* Slightly smaller font size for smaller screens */
+        margin-top: 20px; /* Slightly less space at the top */
+    }
+
+    .subtitle {
+        margin-top: 20px; /* Adjust the spacing below the title for smaller screens */
+    }
+
+    /* Adjust Lain image specifically for smaller phones */
+    main img {
+        max-width: 75%; /* Slightly larger image for smaller screens */
+        position: fixed; /* Keep the image fixed during scrolling */
+        top: 65%; /* Move the image further down */
+        left: 50%; /* Center it horizontally */
+        transform: translate(-50%, -50%); /* Adjust to ensure it's perfectly centered */
+        z-index: -1; /* Keeps the image behind the text */
+    }
+
+    /* Adjust the abstract section to be more suitable for smaller screens */
+    .abstract-section {
+        margin-top: 180px; /* Slightly less space above the abstract */
+        padding-top: 10px; /* Less padding for better spacing */
+    }
+}
+
+#fireButton {
+    background-color: #b22222; /* brick red tone */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: 0 0 15px #ff4500; /* glowing effect */
+    animation: glowing 1500ms infinite;
+}
+
+@keyframes glowing {
+    0% { box-shadow: 0 0 5px #ff4500; }
+    50% { box-shadow: 0 0 20px #ff4500; }
+    100% { box-shadow: 0 0 5px #ff4500; }
+}
+
+#footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: black;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    display: block; /* Always visible */
+}
+
+a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+}
+
+
+
+
