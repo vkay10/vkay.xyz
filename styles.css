@@ -481,7 +481,6 @@ main img {
     }
 }
 
-
 /* System diagram section styling */
 .system-diagram {
     width: 100%;
@@ -509,8 +508,19 @@ body {
     padding-bottom: 200px; /* Reduce the padding slightly if it is no longer needed */
 }
 
+/* Media query for iPhone 14 or larger phones (430px wide or smaller) */
+@media screen and (max-width: 430px) {
+    .system-diagram img {
+        max-width: 85%; /* Increase the size by 30% for iPhone 14 */
+    }
+}
 
-
+/* Media query for iPhone 8 or smaller phones (375px wide or smaller) */
+@media screen and (max-width: 375px) {
+    .system-diagram img {
+        max-width: 85%; /* Increase the size by 30% for iPhone 8 */
+    }
+}
 
 
 
