@@ -453,3 +453,28 @@ main img {
 
 
 
+
+/* Scrolling Text at the Bottom */
+.scrolling-text {
+    position: fixed;
+    bottom: 7px;
+    left: 100%;  /* Start completely off the right side of the screen */
+    font-family: 'Playfair Display', serif;
+    font-size: 15px;
+    white-space: nowrap;
+    z-index: 1000;
+    color: gray;
+    animation: scrollText 10s linear infinite; /* Duration can be adjusted */
+}
+
+/* Keyframe animation for horizontal scrolling */
+@keyframes scrollText {
+    0% {
+        transform: translateX(100%); /* Start off the right side */
+    }
+    100% {
+        transform: translateX(-100vw); /* End off the left side */
+    }
+}
+
+
