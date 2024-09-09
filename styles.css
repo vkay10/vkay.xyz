@@ -482,5 +482,37 @@ main img {
 }
 
 
+/* System diagram section styling */
+.system-diagram {
+    width: 100%;
+    text-align: center;
+    padding: 30px 0; /* Reduce the padding to move it up */
+    background-color: white; /* Ensure the section background is white */
+}
+
+.system-diagram-wrapper {
+    background-color: white; /* Force a white background behind the image */
+    display: inline-block;
+    padding: 10px; /* Add padding around the image to make the white background more visible */
+}
+
+.system-diagram img {
+    max-width: 60%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    margin-top: -200px; /* Move the image up by reducing the top margin */
+}
+
+/* Adjust the body padding to allow scrolling */
+body {
+    padding-bottom: 200px; /* Reduce the padding slightly if it is no longer needed */
+}
+
+
+
+
+
+
 
 
