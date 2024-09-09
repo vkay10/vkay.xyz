@@ -6,7 +6,7 @@
 }
 
 body {
-    font-family: 'Playfair Display', serif; 
+    font-family: 'Playfair Display', serif;
     color: #333;
     background-color: white;
     line-height: 1.6;
@@ -18,7 +18,7 @@ body {
     overflow-x: hidden;
 }
 
-/* Header and Main Section Styling roko nock urbit 21e8*/ 
+/* Header and Main Section Styling */
 header {
     width: 100%;
     text-align: center;
@@ -452,29 +452,35 @@ main img {
 }
 
 
-
-
 /* Scrolling Text at the Bottom */
 .scrolling-text {
     position: fixed;
     bottom: 7px;
-    left: 100%;  /* Start completely off the right side of the screen */
+    width: 100%;
     font-family: 'Playfair Display', serif;
     font-size: 15px;
     white-space: nowrap;
     z-index: 1000;
     color: gray;
-    animation: scrollText 10s linear infinite; /* Duration can be adjusted */
+    overflow: hidden;
+}
+
+.scrolling-text span {
+    display: inline-block;
+    padding-left: 100%; /* Start outside the screen from the right */
+    animation: scrollText 8s linear infinite; /* Adjust speed as needed */
 }
 
 /* Keyframe animation for horizontal scrolling */
 @keyframes scrollText {
     0% {
-        transform: translateX(100%); /* Start off the right side */
+        transform: translateX(0%); /* Start just off-screen from the right */
     }
     100% {
-        transform: translateX(-100vw); /* End off the left side */
+        transform: translateX(-100%); /* Move completely past the left side */
     }
 }
+
+
 
 
