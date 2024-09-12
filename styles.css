@@ -532,8 +532,94 @@ html, body {
     color: white; /* Ensures timer text is visible */
 }
 
+
+
 #countdown {
-    font-size: 24px;
-    text-align: center;
-    padding: 20px;
+    margin-bottom: 20px; /* Adjust this to change the space between the countdown and the button */
+}
+
+
+#timer {
+    font-size: 40px; /* Increase this value to make the countdown larger */
+    font-weight: bold; /* Make the text bold */
+    color: #fff; /* Adjust the color to make it stand out */
+    text-align: center; /* Center the text */
+    padding: 10px; /* Add padding around the countdown */
+}
+
+
+
+/* Play Button Styling */
+#playButton {
+    background-color: #333;  /* Dark background */
+    color: white;  /* White icon color */
+    border: none;
+    border-radius: 50%;  /* Round button */
+    padding: 15px;
+    font-size: 16px;  /* Larger icon size */
+    cursor: pointer;
+    outline: none;
+    transition: background-color 0.3s ease; /* Smooth background change */
+
+    /* Adjust spacing here to move the button up/down/left/right */
+    margin-top: -20px; /* Adjust this to move the button further from the timer (increase or decrease the value) */
+    margin-left: 10px; /* You can add left/right margin here to move the button horizontally */
+    margin-right: 50px; /* Optional for horizontal adjustments */
+}
+
+#playButton:hover {
+    background-color: #555;  /* Lighter on hover */
+}
+
+/* Prevent the icon from interfering with clicks */
+#playButton i {
+    pointer-events: none;
+}
+
+
+
+/* Media Queries for iPhone 14 (width: 430px) */
+@media screen and (max-width: 430px) {
+    #timer {
+        font-size: calc(60px * 0.6); /* 30% smaller */
+    }
+
+    #playButton {
+        padding: calc(15px * 0.85);  /* 30% smaller padding */
+        font-size: calc(24px * 0.85); /* 30% smaller icon size */
+        margin-top: 20px; /* Ensure space between the button and the countdown */
+        margin-left: 0; /* Make sure there is no unwanted margin left or right */
+        margin-right: 0;
+    }
+
+    .black-section {
+        display: flex;
+        flex-direction: column; /* Ensure stacking of countdown and button */
+        align-items: center; /* Center both countdown and button horizontally */
+        justify-content: center; /* Center content vertically */
+        width: 100%; /* Ensure the section takes up full width */
+    }
+}
+
+/* Media Queries for iPhone 8 (width: 375px) */
+@media screen and (max-width: 375px) {
+    #timer {
+        font-size: calc(60px * 0.6); /* 30% smaller */
+    }
+
+    #playButton {
+        padding: calc(15px * 0.85);  /* 30% smaller padding */
+        font-size: calc(24px * 0.85); /* 30% smaller icon size */
+        margin-top: 20px;
+        margin-left: 0; /* No unwanted margin left */
+        margin-right: 0; /* No unwanted margin right */
+    }
+
+    .black-section {
+        display: flex;
+        flex-direction: column; /* Stack the countdown and button vertically */
+        align-items: center; /* Center both countdown and button horizontally */
+        justify-content: center; /* Center content vertically */
+        width: 100%; /* Make sure the section takes up full width */
+    }
 }
