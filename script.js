@@ -134,6 +134,7 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 
+
 function toggleMusic() {
     var audio = document.getElementById('backgroundMusic');
     if (audio.paused) {
@@ -145,6 +146,22 @@ function toggleMusic() {
     }
 }
 
+
+function toggleMusic() {
+    var audio = document.getElementById('backgroundMusic');
+    var playButton = document.getElementById('playButton');
+    var playIcon = playButton.querySelector('i'); // Get the icon inside the button
+
+    if (audio.paused) {
+        audio.play();
+        playIcon.classList.remove('fa-play');
+        playIcon.classList.add('fa-pause');  // Change icon to 'pause'
+    } else {
+        audio.pause();
+        playIcon.classList.remove('fa-pause');
+        playIcon.classList.add('fa-play');  // Change icon back to 'play'
+    }
+}
 
 
 
