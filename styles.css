@@ -55,20 +55,33 @@ main {
     justify-content: center;
     align-items: center;
     width: 100%;
-    flex-grow: 1;
     position: relative;
     margin-bottom: 40px;
 }
 
+/* General style for the Lain image */
 main img {
-    max-width: 50%;
+    max-width: 50%;  /* This will apply universally unless overridden by media queries */
     height: auto;
     display: block;
     margin: 0 auto;
-    margin-top: 20px; /* Adjust as needed to move the image down */
-    position: relative;
-    z-index: 0; /* Image stays behind the subtitle */
+    position: relative;  /* Use relative positioning by default */
+    z-index: 0; /* Ensure the image is behind text like subtitles */
+    transition: opacity 0.5s ease-out; /* Smooth transition for opacity */
+    opacity: 1; /* Start fully visible */
 }
+
+/* Specific adjustments for mobile devices */
+@media screen and (max-width: 768px) { /* Adjust this breakpoint as needed */
+    main img {
+        position: fixed; /* Fix position for mobile to handle special cases */
+        top: 50%; /* Center vertically on the screen */
+        left: 50%; /* Center horizontally */
+        transform: translate(-50%, -50%); /* Ensure it centers perfectly */
+        max-width: 80%; /* Larger size for smaller screens */
+    }
+}
+
 
 /* Abstract Section */
 .abstract-section {
@@ -114,10 +127,6 @@ main img {
 .fly-image.flipped {
     transform: scaleX(-1); /* Flip the image horizontally */
 }
-
-
-
-
 
 /* Media query for iPhone 14 or larger phones */
 @media screen and (max-width: 430px) {
@@ -214,17 +223,6 @@ main img {
         font-size: 85%; /* Reduce font size by 15% */
     }
 }
-
-
-
-
-
-
-
-
-
-
-
 
 #fireButton {
     background-color: #b22222; /* brick red tone */
@@ -401,13 +399,6 @@ main img {
         transition: opacity 0.5s ease-out; /* Smooth fade-out effect if needed */
     }
 }
-
-
-
-
-
-
-
 /* General content section styling */
 .content-section {
     width: 100%;
@@ -450,7 +441,6 @@ main img {
         font-size: 0.9rem; /* Reduce font size further for iPhone 8 */
     }
 }
-
 
 /* Scrolling Text at the Bottom */
 .scrolling-text {
@@ -523,6 +513,27 @@ body {
 }
 
 
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%; /* Ensure there is no horizontal overflow */
+    overflow-x: hidden; /* Hide any accidental horizontal overflow */
+}
 
+.black-section {
+    width: 100vw;
+    min-height: 100vh;
+    background-color: transparent; /* It will turn black via JS */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.5s ease;
+    position: relative;
+    color: white; /* Ensures timer text is visible */
+}
 
-
+#countdown {
+    font-size: 24px;
+    text-align: center;
+    padding: 20px;
+}
