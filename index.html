@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>S-1: Human-Machine Network</title>
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
     <!-- Link to the favicon -->
     <link rel="icon" href="logo.png" type="image/png">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
@@ -103,17 +104,33 @@
 <!-- Black Section to turn black on scroll -->
 <div class="black-section">
     <p></p> <!-- Assuming this is some data or label you want to display -->
+    
+ 
+
+
+
+
+<!-- Black Section to turn black on scroll -->
+<div class="black-section">
+    <p></p> <!-- Assuming this is some data or label you want to display -->
+
+    <!-- Countdown timer -->
     <div id="countdown">
         <p id="timer">Loading...</p>
     </div>
 
-    <!-- Add the audio player and play button here -->
+    <!-- Add the audio player (hidden) and custom play button -->
     <audio id="backgroundMusic" hidden>
         <source src="https://vkay10.github.io/vkay.xyz/HOME%20-%20Resonance.mp3" type="audio/mp3">
         Your browser does not support the audio element.
     </audio>
-    <button onclick="toggleMusic()">Play S-1 Theme</button>
+
+    <!-- Custom Play/Pause button with icon -->
+    <button id="playButton" onclick="toggleMusic()">
+        <i class="fas fa-play"></i> <!-- Font Awesome Play Icon -->
+    </button>
 </div>
+
 
 
     </div>
