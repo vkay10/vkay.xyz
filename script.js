@@ -134,5 +134,18 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 
+function toggleMusic() {
+    var audio = document.getElementById('backgroundMusic');
+    if (audio.paused) {
+        audio.play();
+        event.target.textContent = 'Pause S-1 Theme';  // Change button text to 'Pause Music'
+    } else {
+        audio.pause();
+        event.target.textContent = 'Play S-1 Theme';  // Change button text back to 'Play Music'
+    }
+}
+
+
+
 
 
