@@ -1,625 +1,657 @@
 /* Basic reset */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: 'Playfair Display', serif;
-    color: #333;
-    background-color: white;
-    line-height: 1.6;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    min-height: 100vh;
-    overflow-x: hidden;
+  font-family: 'Playfair Display', serif;
+  color: #333;
+  background-color: white;
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  min-height: 100vh;
+  overflow-x: hidden;
 }
 
 /* Header and Main Section Styling */
 header {
-    width: 100%;
-    text-align: center;
-    margin-top: 0;
-    padding-top: 20px;
+  width: 100%;
+  text-align: center;
+  margin-top: 0;
+  padding-top: 20px;
 }
 
 .title-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 2.5rem;
-    font-weight: 700;
-    font-style: italic;
-    width: 100%;
-    padding: 0 20px;
-    box-sizing: border-box;
+  display: flex;
+  flex-direction: column; /* Stack titles vertically for better responsiveness */
+  justify-content: center;
+  align-items: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  font-style: italic;
+  width: 100%;
+  padding: 0 20px;
+  box-sizing: border-box;
 }
 
+/* Header and Main Section Styling */
 .subtitle {
-    font-size: 1.2rem;
-    font-weight: 400;
-    font-style: italic;
-    max-width: 80%;
-    margin: 40px auto;
+  font-size: 1.2rem;
+  font-weight: 400;
+  font-style: italic;
+  max-width: 80%;
+  margin: 40px auto;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  height: 2.4em; /* Fixed height to prevent layout shift */
+  overflow: hidden; /* Hide overflow */
+  white-space: nowrap; /* Prevent text from wrapping */
+}
+
+/* For mobile devices */
+@media screen and (max-width: 768px) {
+  .subtitle {
+    position: absolute;
+    top: 25%; /* Adjust as needed */
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center vertically and horizontally */
+    width: 80%;
+    font-size: 1rem;
     text-align: center;
-    position: relative;
-    z-index: 1; /* Ensure subtitle is above the image */
+    z-index: 10;
+    height: 2.4em; /* Ensure same fixed height on mobile */
+    overflow: hidden;
+    white-space: nowrap;
+  }
 }
 
 /* Lain image container */
 main {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    position: relative;
-    margin-bottom: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  position: relative;
+  margin-bottom: 40px;
 }
 
 /* General style for the Lain image */
 main img {
-    max-width: 50%;  /* This will apply universally unless overridden by media queries */
-    height: auto;
-    display: block;
-    margin: 0 auto;
-    position: relative;  /* Use relative positioning by default */
-    z-index: 0; /* Ensure the image is behind text like subtitles */
-    transition: opacity 0.5s ease-out; /* Smooth transition for opacity */
-    opacity: 1; /* Start fully visible */
+  max-width: 50%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  position: relative;
+  z-index: 0;
+  transition: opacity 0.5s ease-out;
+  opacity: 1;
 }
 
 /* Specific adjustments for mobile devices */
-@media screen and (max-width: 768px) { /* Adjust this breakpoint as needed */
-    main img {
-        position: fixed; /* Fix position for mobile to handle special cases */
-        top: 50%; /* Center vertically on the screen */
-        left: 50%; /* Center horizontally */
-        transform: translate(-50%, -50%); /* Ensure it centers perfectly */
-        max-width: 80%; /* Larger size for smaller screens */
-    }
+@media screen and (max-width: 768px) {
+  main img {
+    position: relative; /* Changed from fixed to relative */
+    top: auto;
+    left: auto;
+    transform: none;
+    max-width: 80%;
+    margin-top: 20px; /* Added margin to separate from content */
+  }
 }
-
 
 /* Abstract Section */
 .abstract-section {
-    width: 100%;
-    padding: 60px 20px;
-    background-color: white; 
-    color: #333;
-    text-align: center;
+  width: 100%;
+  padding: 60px 20px;
+  background-color: white;
+  color: #333;
+  text-align: center;
 }
 
 .abstract-section h2 {
-    font-size: 2rem;
-    margin-bottom: 0px;
+  font-size: 2rem;
+  margin-bottom: 20px;
 }
 
 .abstract-section p {
-    max-width: 800px;
-    margin: 0 auto 20px;
-    line-height: 1.8;
+  max-width: 800px;
+  margin: 0 auto 20px;
+  line-height: 1.8;
+}
+
+/* New styles for collapsible sections */
+.abstract-section details {
+  max-width: 800px;
+  margin: 0 auto 10px;
+  text-align: left;
+}
+
+.abstract-section summary {
+  font-weight: bold;
+  font-size: 1.2rem;
+  cursor: pointer;
+  margin-bottom: 5px;
+  position: relative;
+}
+
+.abstract-section summary::after {
+  content: "+";
+  position: absolute;
+  right: 0;
+}
+
+.abstract-section details[open] summary::after {
+  content: "−";
 }
 
 /* Fly image containers and mirrored fly on the right */
 .fly-image-container-left, .fly-image-container-right {
-    position: absolute;
-    top: 15px;
-    z-index: 1000;
+  position: absolute;
+  top: 15px;
+  z-index: 1000;
 }
 
 .fly-image-container-left {
-    left: 10px;
+  left: 10px;
 }
 
 .fly-image-container-right {
-    right: 10px;
+  right: 10px;
 }
 
 .fly-image {
-    width: 130px;
-    height: auto;
-    opacity: 0.8;
+  width: 130px;
+  height: auto;
+  opacity: 0.8;
 }
 
 .fly-image.flipped {
-    transform: scaleX(-1); /* Flip the image horizontally */
+  transform: scaleX(-1);
 }
 
 /* Media query for iPhone 14 or larger phones */
 @media screen and (max-width: 430px) {
-    .title-container {
-        font-size: 1.8rem; /* Adjust title size here */
-        margin-top: 30px; /* Adjust space at the top */
-    }
+  .title-container {
+    font-size: 1.8rem;
+    margin-top: 30px;
+  }
 
-    .subtitle {
-        position: absolute; /* Position it absolutely so it doesn't affect other elements */
-        top: 30%; /* Move it down to 30% from the top */
-        left: 50%;
-        transform: translateX(-50%); /* Center horizontally */
-        width: 80%; /* Ensure it doesn't overflow horizontally */
-        margin-top: 0; /* Remove any margin that pushes content down */
-        font-size: 1rem; /* Adjust size for readability */
-        text-align: center;
-        z-index: 10; /* Keep it above other content */
-    }
+  .subtitle {
+    width: 80%;
+    font-size: 1rem;
+    text-align: center;
+    z-index: 10;
+  }
 
-    /* Adjust Lain image for mobile phones */
-    main img {
-        max-width: 80%;
-        height: auto;
-        display: block;
-        margin: 0 auto;
-        position: fixed; /* Fix the Lain image in place */
-        top: 70%; /* Move the image further down */
-        left: 50%; /* Center it horizontally */
-        transform: translate(-50%, -60%); /* Adjust to ensure it's perfectly centered and moved down */
-        z-index: -1; /* Keeps the image behind the text */
-        opacity: 1; /* Start fully visible */
-        transition: opacity 0.5s ease-out; /* Smooth fade-out effect */
-    }
+  /* Adjust Lain image for mobile phones */
+  main img {
+    max-width: 80%;
+    height: auto;
+    display: block;
+    margin: 20px auto;
+    position: relative;
+    z-index: -1;
+    opacity: 1;
+    transition: opacity 0.5s ease-out;
+  }
 
-    /* Gradually fade out the Lain image as the user scrolls past */
-    body.scrolled main img {
-        opacity: 0; /* Fade out the image */
-    }
-
-    /* Fix the abstract section to stay in its position */
-    .abstract-section {
-        position: relative; /* Ensure it doesn't move */
-        margin-top: 400px; /* Leave more space above the abstract */
-    }
+  /* Adjust the abstract section */
+  .abstract-section {
+    margin-top: 20px;
+  }
 }
 
 /* Media query for smaller phones like iPhone 8 */
 @media screen and (max-width: 375px) {
-    .title-container {
-        font-size: 1.6rem; /* Slightly smaller font size for smaller screens */
-        margin-top: 20px; /* Slightly less space at the top */
-    }
+  .title-container {
+    font-size: 1.6rem;
+    margin-top: 20px;
+  }
 
-    .subtitle {
-        position: absolute; /* Keep the subtitle from affecting layout */
-        top: 30%; /* Move it down to 30% from the top */
-        left: 50%;
-        transform: translateX(-50%);
-        width: 90%;
-        margin-top: 0;
-        font-size: 0.9rem; /* Adjust font size for smaller screens */
-        text-align: center;
-        z-index: 10;
-    }
+  .subtitle {
+    width: 90%;
+    font-size: 0.9rem;
+    text-align: center;
+    z-index: 10;
+  }
 
-    /* Adjust Lain image specifically for smaller phones */
-    main img {
-        max-width: 75%; /* Slightly larger image for smaller screens */
-        position: fixed; /* Keep the image fixed during scrolling */
-        top: 75%; /* Move the image further down */
-        left: 50%; /* Center it horizontally */
-        transform: translate(-50%, -50%); /* Adjust to ensure it's perfectly centered */
-        z-index: -1; /* Keeps the image behind the text */
-    }
+  /* Adjust Lain image specifically for smaller phones */
+  main img {
+    max-width: 75%;
+    margin-top: 20px;
+  }
 
-    /* Adjust the abstract section to be more suitable for smaller screens */
-    .abstract-section {
-        margin-top: 380px; /* More space above the abstract */
-        padding-top: 10px; /* Less padding for better spacing */
-    }
+  /* Adjust the abstract section */
+  .abstract-section {
+    margin-top: 20px;
+    padding-top: 10px;
+  }
 }
 
 /* Media query for iPhone 14 or larger phones */
 @media screen and (max-width: 430px) {
-    .abstract-section p {
-        font-size: 90%; /* Reduce font size by 10% */
-    }
+  .abstract-section p {
+    font-size: 90%;
+  }
 }
 
 /* Media query for iPhone 8 or smaller phones */
 @media screen and (max-width: 375px) {
-    .abstract-section p {
-        font-size: 85%; /* Reduce font size by 15% */
-    }
-}
-
-#fireButton {
-    background-color: #b22222; /* brick red tone */
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    text-transform: uppercase;
-    border-radius: 4px;
-    cursor: pointer;
-    box-shadow: 0 0 15px #ff4500; /* glowing effect */
-    animation: glowing 1500ms infinite;
-}
-
-@keyframes glowing {
-    0% { box-shadow: 0 0 5px #ff4500; }
-    50% { box-shadow: 0 0 20px #ff4500; }
-    100% { box-shadow: 0 0 5px #ff4500; }
+  .abstract-section p {
+    font-size: 85%;
+  }
 }
 
 #footer {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    background: black;
-    color: white;
-    text-align: center;
-    padding: 10px;
-    display: block; /* Always visible */
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: black;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  display: block;
 }
 
 a {
-    color: white;
-    text-decoration: none;
-    margin: 0 15px;
+  color: white;
+  text-decoration: none;
+  margin: 0 15px;
 }
 
 /* Basic Sphere CSS */
 .sphere {
-    width: 20em;
-    height: 20em;
-    position: relative;
-    margin: 0 auto;
-    animation: spinSphere 10s infinite linear;
-    transform-style: preserve-3d;
-    transition: transform 0.3s ease; /* Smooth transition for hover effect */
+  width: 20em;
+  height: 20em;
+  position: relative;
+  margin: 0 auto;
+  animation: spinSphere 10s infinite linear;
+  transform-style: preserve-3d;
+  transition: transform 0.3s ease;
+}
+
+/* Styling the rings with gray and brick red */
+.sphere > div {
+  position: absolute;
+  width: 20em;
+  height: 20em;
+  border: 2px solid rgba(128, 128, 128, 0.8);
+  border-radius: 50%;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+/* Darker brick red for selected rings */
+.ring1, .ring6, .ring11, .ring16, .ring21 {
+  border-color: rgba(178, 34, 34, 0.8);
+}
+
+/* Rotate Y for the first 17 rings */
+.ring1 { transform: rotateY(10deg); }
+.ring2 { transform: rotateY(20deg); }
+.ring3 { transform: rotateY(30deg); }
+.ring4 { transform: rotateY(40deg); }
+.ring5 { transform: rotateY(50deg); }
+.ring6 { transform: rotateY(60deg); }
+.ring7 { transform: rotateY(70deg); }
+.ring8 { transform: rotateY(80deg); }
+.ring9 { transform: rotateY(90deg); }
+.ring10 { transform: rotateY(100deg); }
+.ring11 { transform: rotateY(110deg); }
+.ring12 { transform: rotateY(120deg); }
+.ring13 { transform: rotateY(130deg); }
+.ring14 { transform: rotateY(140deg); }
+.ring15 { transform: rotateY(150deg); }
+.ring16 { transform: rotateY(160deg); }
+.ring17 { transform: rotateY(170deg); }
+
+/* Rotate X for the remaining rings */
+.ring18 { transform: rotateX(10deg); }
+.ring19 { transform: rotateX(20deg); }
+.ring20 { transform: rotateX(30deg); }
+.ring21 { transform: rotateX(40deg); }
+.ring22 { transform: rotateX(50deg); }
+.ring23 { transform: rotateX(60deg); }
+.ring24 { transform: rotateX(70deg); }
+.ring25 { transform: rotateX(80deg); }
+.ring26 { transform: rotateX(90deg); }
+.ring27 { transform: rotateX(100deg); }
+.ring28 { transform: rotateX(110deg); }
+.ring29 { transform: rotateX(120deg); }
+.ring30 { transform: rotateX(130deg); }
+.ring31 { transform: rotateX(140deg); }
+.ring32 { transform: rotateX(150deg); }
+.ring33 { transform: rotateX(160deg); }
+.ring34 { transform: rotateX(170deg); }
+.ring35 { transform: rotateX(180deg); }
+.ring36 { transform: rotateX(190deg); }
+
+/* Hover Effect on the Sphere */
+.sphere:hover {
+  transform: scale(1.1) rotateZ(60deg);
+  animation: spinSphereHover 5s infinite linear;
+}
+
+.sphere:hover .ring1, .sphere:hover .ring6, .sphere:hover .ring11, .sphere:hover .ring16, .sphere:hover .ring21 {
+  transform: rotateY(10deg) scale(1.1) rotate(10deg);
+  border-color: rgba(255, 69, 0, 0.8);
+}
+
+.sphere:hover > div {
+  transform: scale(0.95);
+  border-color: rgba(192, 192, 192, 0.8);
+}
+
+/* Faster rotation when hovering */
+@keyframes spinSphereHover {
+  from {
+    transform: rotateZ(60deg) rotateX(0);
   }
-  
-  /* Styling the rings with gray and brick red */
-  [class^="ring"] {
-    position: absolute;
-    width: 20em;
-    height: 20em;
-    border: 2px solid rgba(128, 128, 128, 0.8); /* Gray color with some transparency */
-    border-radius: 50%;
-    transition: transform 0.3s ease, border-color 0.3s ease; /* Smooth transition for individual rings */
+  to {
+    transform: rotateZ(60deg) rotateX(360deg);
   }
-  
-  /* Darker brick red for selected rings */
-  .ring1, .ring6, .ring11, .ring16, .ring21 {
-    border-color: rgba(178, 34, 34, 0.8); /* Brick red */
+}
+
+/* Normal rotation */
+@keyframes spinSphere {
+  from {
+    transform: rotateZ(60deg) rotateX(0);
   }
-  
-  /* Rotate Y for the first 17 rings */
-  .ring1 { transform: rotateY(10deg); }
-  .ring2 { transform: rotateY(20deg); }
-  .ring3 { transform: rotateY(30deg); }
-  .ring4 { transform: rotateY(40deg); }
-  .ring5 { transform: rotateY(50deg); }
-  .ring6 { transform: rotateY(60deg); }
-  .ring7 { transform: rotateY(70deg); }
-  .ring8 { transform: rotateY(80deg); }
-  .ring9 { transform: rotateY(90deg); }
-  .ring10 { transform: rotateY(100deg); }
-  .ring11 { transform: rotateY(110deg); }
-  .ring12 { transform: rotateY(120deg); }
-  .ring13 { transform: rotateY(130deg); }
-  .ring14 { transform: rotateY(140deg); }
-  .ring15 { transform: rotateY(150deg); }
-  .ring16 { transform: rotateY(160deg); }
-  .ring17 { transform: rotateY(170deg); }
-  
-  /* Rotate X for the remaining rings */
-  .ring18 { transform: rotateX(10deg); }
-  .ring19 { transform: rotateX(20deg); }
-  .ring20 { transform: rotateX(30deg); }
-  .ring21 { transform: rotateX(40deg); }
-  .ring22 { transform: rotateX(50deg); }
-  .ring23 { transform: rotateX(60deg); }
-  .ring24 { transform: rotateX(70deg); }
-  .ring25 { transform: rotateX(80deg); }
-  .ring26 { transform: rotateX(90deg); }
-  .ring27 { transform: rotateX(100deg); }
-  .ring28 { transform: rotateX(110deg); }
-  .ring29 { transform: rotateX(120deg); }
-  .ring30 { transform: rotateX(130deg); }
-  .ring31 { transform: rotateX(140deg); }
-  .ring32 { transform: rotateX(150deg); }
-  .ring33 { transform: rotateX(160deg); }
-  .ring34 { transform: rotateX(170deg); }
-  .ring35 { transform: rotateX(180deg); }
-  .ring36 { transform: rotateX(190deg); }
-  
-  /* Hover Effect on the Sphere */
-  .sphere:hover {
-    transform: scale(1.1) rotateZ(60deg); /* Slightly enlarge and rotate on hover */
-    animation: spinSphereHover 5s infinite linear; /* Faster rotation on hover */
+  to {
+    transform: rotateZ(60deg) rotateX(360deg);
   }
-  
-  /* Individual Rings wobble slightly on hover */
-  .sphere:hover .ring1, .sphere:hover .ring6, .sphere:hover .ring11, .sphere:hover .ring16, .sphere:hover .ring21 {
-    transform: rotateY(10deg) scale(1.1) rotate(10deg); /* Slightly scale and rotate specific rings */
-    border-color: rgba(255, 69, 0, 0.8); /* Change brick red to a brighter color on hover */
-  }
-  
-  .sphere:hover .ring {
-    transform: scale(0.95); /* All rings slightly compress */
-    border-color: rgba(192, 192, 192, 0.8); /* Change gray to lighter gray */
-  }
-  
-  /* Faster rotation when hovering */
-  @keyframes spinSphereHover {
-    from {
-      transform: rotateZ(60deg) rotateX(0);
-    }
-    to {
-      transform: rotateZ(60deg) rotateX(360deg);
-    }
-  }
-  
-  /* Normal rotation */
-  @keyframes spinSphere {
-    from {
-      transform: rotateZ(60deg) rotateX(0);
-    }
-    to {
-      transform: rotateZ(60deg) rotateX(360deg);
-    }
-  }
-  
-  /* Media query for iPhone 14 (430px wide) */
+}
+
+/* Media query for iPhone 14 (430px wide) */
 @media screen and (max-width: 430px) {
-    .sphere {
-        transform: scale(0.7); /* Scale down to 70% of the original size (30% smaller) */
-    }
+  .sphere {
+    transform: scale(0.7);
+  }
 }
 
-
-/* Lain image for desktop/laptop view */
-main img {
-    max-width: 50%; /* Restore original size for desktop/laptop */
-    height: auto;
-    display: block;
-    margin: 0 auto;
-    margin-top: 20px; /* Adjust as needed to move the image down */
-    position: relative; /* Restore original position for desktop/laptop */
-    z-index: 0; /* Image stays behind the subtitle */
-    opacity: 1; /* Always fully visible */
-}
-
-/* Media query for iPhone 14 or larger phones (430px wide or smaller) */
-@media screen and (max-width: 430px) {
-    /* Adjust Lain image for mobile phones */
-    main img {
-        max-width: 80%; /* Adjust size for mobile */
-        height: auto;
-        display: block;
-        margin: 0 auto;
-        position: fixed; /* Fix the image for mobile scrolling */
-        top: 60%; /* Move the image down */
-        left: 50%; /* Center it horizontally */
-        transform: translate(-50%, -60%); /* Ensure it's centered */
-        z-index: -1; /* Keep it behind the text */
-        opacity: 1; /* Always visible */
-        transition: opacity 0.5s ease-out; /* Smooth fade-out effect if needed */
-    }
-}
 /* General content section styling */
 .content-section {
-    width: 100%;
-    padding: 80px 20px; /* Spacing around the section */
-    background-color: white;
-    color: #333;
-    text-align: center; /* Ensure text is centered */
-    font-size: 1.1rem; /* Adjusted slightly smaller default font size */
-    line-height: 1.8;
+  width: 100%;
+  padding: 80px 20px;
+  background-color: white;
+  color: #333;
+  text-align: center;
+  font-size: 1.1rem;
+  line-height: 1.8;
 }
 
 .content-section p {
-    max-width: 800px; /* Ensure the text does not stretch too wide */
-    margin: 0 auto;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 /* Add space below the section for more scroll room */
 .content-section::after {
-    content: '';
-    display: block;
-    height: 200px; /* Adds space below the section */
+  content: '';
+  display: block;
+  height: 200px;
 }
 
-/* Media query for iPhone 14 or larger phones */
-@media screen and (max-width: 430px) {
-    .content-section {
-        padding: 60px 15px;
-    }
-    .content-section p {
-        font-size: 1rem; /* Reduce font size for iPhone 14 */
-    }
+/* Styling for collapsible sections in content section */
+.content-section details {
+  max-width: 800px;
+  margin: 0 auto 10px;
+  text-align: left;
 }
 
-/* Media query for iPhone 8 or smaller phones */
-@media screen and (max-width: 375px) {
-    .content-section {
-        padding: 50px 10px;
-    }
-    .content-section p {
-        font-size: 0.9rem; /* Reduce font size further for iPhone 8 */
-    }
+.content-section summary {
+  font-weight: bold;
+  font-size: 1.1rem;
+  cursor: pointer;
+  margin-bottom: 5px;
+  position: relative;
+}
+
+.content-section summary::after {
+  content: "+";
+  position: absolute;
+  right: 0;
+}
+
+.content-section details[open] summary::after {
+  content: "−";
+}
+
+/* Adjust spacing around the sphere */
+#simpleSphere-section {
+  margin: 50px 0;
 }
 
 /* Scrolling Text at the Bottom */
 .scrolling-text {
-    position: fixed;
-    bottom: 7px;
-    width: 100%;
-    font-family: 'Playfair Display', serif;
-    font-size: 15px;
-    white-space: nowrap;
-    z-index: 1000;
-    color: gray;
-    overflow: hidden;
+  position: fixed;
+  bottom: 7px;
+  width: 100%;
+  font-family: 'Playfair Display', serif;
+  font-size: 15px;
+  white-space: nowrap;
+  z-index: 1000;
+  color: gray;
+  overflow: hidden;
 }
 
 .scrolling-text span {
-    display: inline-block;
-    padding-left: 100%; /* Start outside the screen from the right */
-    animation: scrollText 8s linear infinite; /* Adjust speed as needed */
+  display: inline-block;
+  padding-left: 100%;
+  animation: scrollText 8s linear infinite;
 }
 
-/* Keyframe animation for horizontal scrolling */
 @keyframes scrollText {
-    0% {
-        transform: translateX(0%); /* Start just off-screen from the right */
-    }
-    100% {
-        transform: translateX(-100%); /* Move completely past the left side */
-    }
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
 }
 
 /* System diagram section styling */
 .system-diagram {
-    width: 100%;
-    text-align: center;
-    padding: 30px 0; /* Reduce the padding to move it up */
-    background-color: white; /* Ensure the section background is white */
+  width: 100%;
+  text-align: center;
+  padding: 30px 0;
+  background-color: white;
 }
 
 .system-diagram-wrapper {
-    background-color: white; /* Force a white background behind the image */
-    display: inline-block;
-    padding: 10px; /* Add padding around the image to make the white background more visible */
+  background-color: white;
+  display: inline-block;
+  padding: 10px;
 }
 
 .system-diagram img {
-    max-width: 60%;
-    height: auto;
-    display: block;
-    margin: 0 auto;
-    margin-top: -200px; /* Move the image up by reducing the top margin */
+  max-width: 60%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  margin-top: -200px;
 }
 
 /* Adjust the body padding to allow scrolling */
 body {
-    padding-bottom: 200px; /* Reduce the padding slightly if it is no longer needed */
+  padding-bottom: 200px;
 }
-
-/* Media query for iPhone 14 or larger phones (430px wide or smaller) */
-@media screen and (max-width: 430px) {
-    .system-diagram img {
-        max-width: 85%; /* Increase the size by 30% for iPhone 14 */
-    }
-}
-
-/* Media query for iPhone 8 or smaller phones (375px wide or smaller) */
-@media screen and (max-width: 375px) {
-    .system-diagram img {
-        max-width: 85%; /* Increase the size by 30% for iPhone 8 */
-    }
-}
-
 
 html, body {
-    margin: 0;
-    padding: 0;
-    width: 100%; /* Ensure there is no horizontal overflow */
-    overflow-x: hidden; /* Hide any accidental horizontal overflow */
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
 }
 
 .black-section {
-    width: 100vw;
-    min-height: 100vh;
-    background-color: transparent; /* It will turn black via JS */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: background-color 0.5s ease;
-    position: relative;
-    color: white; /* Ensures timer text is visible */
+  width: 100vw;
+  min-height: 100vh;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.5s ease;
+  position: relative;
+  color: white;
 }
-
-
 
 #countdown {
-    margin-bottom: 20px; /* Adjust this to change the space between the countdown and the button */
+  margin-bottom: 20px;
 }
-
 
 #timer {
-    font-size: 40px; /* Increase this value to make the countdown larger */
-    font-weight: bold; /* Make the text bold */
-    color: #fff; /* Adjust the color to make it stand out */
-    text-align: center; /* Center the text */
-    padding: 10px; /* Add padding around the countdown */
+  font-size: 40px;
+  font-weight: bold;
+  color: #fff;
+  text-align: center;
+  padding: 10px;
 }
-
-
 
 /* Play Button Styling */
 #playButton {
-    background-color: #333;  /* Dark background */
-    color: white;  /* White icon color */
-    border: none;
-    border-radius: 50%;  /* Round button */
-    padding: 15px;
-    font-size: 16px;  /* Larger icon size */
-    cursor: pointer;
-    outline: none;
-    transition: background-color 0.3s ease; /* Smooth background change */
-
-    /* Adjust spacing here to move the button up/down/left/right */
-    margin-top: -20px; /* Adjust this to move the button further from the timer (increase or decrease the value) */
-    margin-left: 10px; /* You can add left/right margin here to move the button horizontally */
-    margin-right: 50px; /* Optional for horizontal adjustments */
+  background-color: #333;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  padding: 15px;
+  font-size: 16px;
+  cursor: pointer;
+  outline: none;
+  transition: background-color 0.3s ease;
+  margin-top: -20px;
+  margin-left: 10px;
+  margin-right: 50px;
 }
 
 #playButton:hover {
-    background-color: #555;  /* Lighter on hover */
+  background-color: #555;
 }
 
-/* Prevent the icon from interfering with clicks */
 #playButton i {
-    pointer-events: none;
+  pointer-events: none;
 }
-
-
 
 /* Media Queries for iPhone 14 (width: 430px) */
 @media screen and (max-width: 430px) {
-    #timer {
-        font-size: calc(60px * 0.6); /* 30% smaller */
-    }
+  #timer {
+    font-size: calc(60px * 0.6);
+  }
 
-    #playButton {
-        padding: calc(15px * 0.85);  /* 30% smaller padding */
-        font-size: calc(24px * 0.85); /* 30% smaller icon size */
-        margin-top: 20px; /* Ensure space between the button and the countdown */
-        margin-left: 0; /* Make sure there is no unwanted margin left or right */
-        margin-right: 0;
-    }
+  #playButton {
+    padding: calc(15px * 0.85);
+    font-size: calc(24px * 0.85);
+    margin-top: 20px;
+    margin-left: 0;
+    margin-right: 0;
+  }
 
-    .black-section {
-        display: flex;
-        flex-direction: column; /* Ensure stacking of countdown and button */
-        align-items: center; /* Center both countdown and button horizontally */
-        justify-content: center; /* Center content vertically */
-        width: 100%; /* Ensure the section takes up full width */
-    }
+  .black-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
 }
 
 /* Media Queries for iPhone 8 (width: 375px) */
 @media screen and (max-width: 375px) {
-    #timer {
-        font-size: calc(60px * 0.6); /* 30% smaller */
-    }
+  #timer {
+    font-size: calc(60px * 0.6);
+  }
 
-    #playButton {
-        padding: calc(15px * 0.85);  /* 30% smaller padding */
-        font-size: calc(24px * 0.85); /* 30% smaller icon size */
-        margin-top: 20px;
-        margin-left: 0; /* No unwanted margin left */
-        margin-right: 0; /* No unwanted margin right */
-    }
+  #playButton {
+    padding: calc(15px * 0.85);
+    font-size: calc(24px * 0.85);
+    margin-top: 20px;
+    margin-left: 0;
+    margin-right: 0;
+  }
 
-    .black-section {
-        display: flex;
-        flex-direction: column; /* Stack the countdown and button vertically */
-        align-items: center; /* Center both countdown and button horizontally */
-        justify-content: center; /* Center content vertically */
-        width: 100%; /* Make sure the section takes up full width */
-    }
+  .black-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
 }
+
+/* Adjustments for mobile devices */
+@media screen and (max-width: 768px) {
+  .abstract-section, .content-section {
+    padding: 40px 15px;
+  }
+
+  .abstract-section h2 {
+    font-size: 1.8rem;
+  }
+
+  .abstract-section summary, .content-section summary {
+    font-size: 1.1rem;
+  }
+
+  .abstract-section p, .content-section p {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  /* Close all details by default on mobile */
+  .abstract-section details:not(:first-of-type), .content-section details {
+    overflow: hidden;
+  }
+
+  .abstract-section summary::after,
+  .content-section summary::after {
+    content: "+";
+  }
+}
+
+/* Media query for iPhone 14 or larger phones */
+@media screen and (max-width: 430px) {
+  .abstract-section h2 {
+    font-size: 1.6rem;
+  }
+
+  .abstract-section summary, .content-section summary {
+    font-size: 1rem;
+  }
+
+  .abstract-section p, .content-section p {
+    font-size: 0.95rem;
+  }
+}
+
+/* Media query for iPhone 8 or smaller phones */
+@media screen and (max-width: 375px) {
+  .abstract-section h2 {
+    font-size: 1.4rem;
+  }
+
+  .abstract-section summary, .content-section summary {
+    font-size: 0.9rem;
+  }
+
+  .abstract-section p, .content-section p {
+    font-size: 0.9rem;
+  }
+}
+
+/* Ensure that collapsible sections are expanded on larger screens */
+@media screen and (min-width: 769px) {
+  .abstract-section details, .content-section details {
+    display: block;
+  }
+
+  .abstract-section summary::after,
+  .content-section summary::after {
+    display: none;
+  }
+}
+
