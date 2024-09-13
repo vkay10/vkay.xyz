@@ -1,4 +1,4 @@
-/* Basic reset */
+/* Basic Reset */
 * {
   margin: 0;
   padding: 0;
@@ -6,7 +6,7 @@
 }
 
 body {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Playfair Display', serif; /* Reverted to Playfair Display */
   color: #333;
   background-color: white;
   line-height: 1.6;
@@ -16,13 +16,39 @@ body {
   align-items: center;
   min-height: 100vh;
   overflow-x: hidden;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+body.dark-mode .abstract-section,
+body.dark-mode .content-section,
+body.dark-mode .system-diagram,
+body.dark-mode .final-section {
+  background-color: #1c1c1c;
+}
+
+body.dark-mode a {
+  color: #ff4500;
+}
+
+body.dark-mode .scrolling-text {
+  color: #ccc;
+}
+
+body.dark-mode .animated-text .letter {
+  color: #ff4500;
 }
 
 /* Header and Main Section Styling */
 header {
   width: 100%;
   text-align: center;
-  margin-top: 0;
+  margin-top: 20px;
   padding-top: 20px;
 }
 
@@ -39,7 +65,6 @@ header {
   box-sizing: border-box;
 }
 
-/* Header and Main Section Styling */
 .subtitle {
   font-size: 1.2rem;
   font-weight: 400;
@@ -52,23 +77,6 @@ header {
   height: 2.4em; /* Fixed height to prevent layout shift */
   overflow: hidden; /* Hide overflow */
   white-space: nowrap; /* Prevent text from wrapping */
-}
-
-/* For mobile devices */
-@media screen and (max-width: 768px) {
-  .subtitle {
-    position: absolute;
-    top: 25%; /* Adjust as needed */
-    left: 50%;
-    transform: translate(-50%, -50%); /* Center vertically and horizontally */
-    width: 80%;
-    font-size: 1rem;
-    text-align: center;
-    z-index: 10;
-    height: 2.4em; /* Ensure same fixed height on mobile */
-    overflow: hidden;
-    white-space: nowrap;
-  }
 }
 
 /* Lain image container */
@@ -112,6 +120,7 @@ main img {
   background-color: white;
   color: #333;
   text-align: center;
+  transition: background-color 0.3s, color 0.3s;
 }
 
 .abstract-section h2 {
@@ -125,7 +134,6 @@ main img {
   line-height: 1.8;
 }
 
-/* New styles for collapsible sections */
 .abstract-section details {
   max-width: 800px;
   margin: 0 auto 10px;
@@ -169,103 +177,19 @@ main img {
   width: 130px;
   height: auto;
   opacity: 0.8;
+  transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 .fly-image.flipped {
   transform: scaleX(-1);
 }
 
-/* Media query for iPhone 14 or larger phones */
-@media screen and (max-width: 430px) {
-  .title-container {
-    font-size: 1.8rem;
-    margin-top: 30px;
-  }
-
-  .subtitle {
-    width: 80%;
-    font-size: 1rem;
-    text-align: center;
-    z-index: 10;
-  }
-
-  /* Adjust Lain image for mobile phones */
-  main img {
-    max-width: 80%;
-    height: auto;
-    display: block;
-    margin: 20px auto;
-    position: relative;
-    z-index: -1;
-    opacity: 1;
-    transition: opacity 0.5s ease-out;
-  }
-
-  /* Adjust the abstract section */
-  .abstract-section {
-    margin-top: 20px;
-  }
+.fly-image:hover {
+  transform: scale(1.05);
+  opacity: 1;
 }
 
-/* Media query for smaller phones like iPhone 8 */
-@media screen and (max-width: 375px) {
-  .title-container {
-    font-size: 1.6rem;
-    margin-top: 20px;
-  }
-
-  .subtitle {
-    width: 90%;
-    font-size: 0.9rem;
-    text-align: center;
-    z-index: 10;
-  }
-
-  /* Adjust Lain image specifically for smaller phones */
-  main img {
-    max-width: 75%;
-    margin-top: 20px;
-  }
-
-  /* Adjust the abstract section */
-  .abstract-section {
-    margin-top: 20px;
-    padding-top: 10px;
-  }
-}
-
-/* Media query for iPhone 14 or larger phones */
-@media screen and (max-width: 430px) {
-  .abstract-section p {
-    font-size: 90%;
-  }
-}
-
-/* Media query for iPhone 8 or smaller phones */
-@media screen and (max-width: 375px) {
-  .abstract-section p {
-    font-size: 85%;
-  }
-}
-
-#footer {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  background: black;
-  color: white;
-  text-align: center;
-  padding: 10px;
-  display: block;
-}
-
-a {
-  color: white;
-  text-decoration: none;
-  margin: 0 15px;
-}
-
-/* Basic Sphere CSS */
+/* 3D Sphere Styling */
 .sphere {
   width: 20em;
   height: 20em;
@@ -276,7 +200,6 @@ a {
   transition: transform 0.3s ease;
 }
 
-/* Styling the rings with gray and brick red */
 .sphere > div {
   position: absolute;
   width: 20em;
@@ -286,12 +209,10 @@ a {
   transition: transform 0.3s ease, border-color 0.3s ease;
 }
 
-/* Darker brick red for selected rings */
 .ring1, .ring6, .ring11, .ring16, .ring21 {
   border-color: rgba(178, 34, 34, 0.8);
 }
 
-/* Rotate Y for the first 17 rings */
 .ring1 { transform: rotateY(10deg); }
 .ring2 { transform: rotateY(20deg); }
 .ring3 { transform: rotateY(30deg); }
@@ -309,8 +230,6 @@ a {
 .ring15 { transform: rotateY(150deg); }
 .ring16 { transform: rotateY(160deg); }
 .ring17 { transform: rotateY(170deg); }
-
-/* Rotate X for the remaining rings */
 .ring18 { transform: rotateX(10deg); }
 .ring19 { transform: rotateX(20deg); }
 .ring20 { transform: rotateX(30deg); }
@@ -347,7 +266,7 @@ a {
   border-color: rgba(192, 192, 192, 0.8);
 }
 
-/* Faster rotation when hovering */
+/* Keyframes for Sphere Animation */
 @keyframes spinSphereHover {
   from {
     transform: rotateZ(60deg) rotateX(0);
@@ -357,7 +276,6 @@ a {
   }
 }
 
-/* Normal rotation */
 @keyframes spinSphere {
   from {
     transform: rotateZ(60deg) rotateX(0);
@@ -374,7 +292,7 @@ a {
   }
 }
 
-/* General content section styling */
+/* Content Section Styling */
 .content-section {
   width: 100%;
   padding: 80px 20px;
@@ -383,6 +301,7 @@ a {
   text-align: center;
   font-size: 1.1rem;
   line-height: 1.8;
+  transition: background-color 0.3s, color 0.3s;
 }
 
 .content-section p {
@@ -390,14 +309,12 @@ a {
   margin: 0 auto;
 }
 
-/* Add space below the section for more scroll room */
 .content-section::after {
   content: '';
   display: block;
   height: 200px;
 }
 
-/* Styling for collapsible sections in content section */
 .content-section details {
   max-width: 800px;
   margin: 0 auto 10px;
@@ -432,7 +349,7 @@ a {
   position: fixed;
   bottom: 7px;
   width: 100%;
-  font-family: 'Playfair Display', serif;
+  font-family: 'Playfair Display', serif; /* Consistent font */
   font-size: 15px;
   white-space: nowrap;
   z-index: 1000;
@@ -455,12 +372,13 @@ a {
   }
 }
 
-/* System diagram section styling */
+/* System Diagram Section Styling */
 .system-diagram {
   width: 100%;
   text-align: center;
   padding: 30px 0;
   background-color: white;
+  transition: background-color 0.3s, color 0.3s;
 }
 
 .system-diagram-wrapper {
@@ -479,7 +397,7 @@ a {
 
 /* Adjust the body padding to allow scrolling */
 body {
-  padding-bottom: 200px;
+  padding-bottom: 60px; /* Adjusted to accommodate the smaller sticky footer */
 }
 
 html, body {
@@ -489,11 +407,13 @@ html, body {
   overflow-x: hidden;
 }
 
+/* Black Section */
 .black-section {
   width: 100vw;
   min-height: 100vh;
   background-color: transparent;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   transition: background-color 0.5s ease;
@@ -513,145 +433,271 @@ html, body {
   padding: 10px;
 }
 
+body.dark-mode #timer {
+  color: #e0e0e0;
+}
+
+/* Circular Network Countdown Styling */
+.network-countdown {
+  margin: 20px 0;
+}
+
+#circular-countdown {
+  width: 300px;
+  height: 300px;
+}
+
+#progress-circle {
+  stroke-dasharray: 879; /* 2 * PI * r, where r = 140 */
+  stroke-dashoffset: 879; /* Initially hidden */
+  transition: stroke-dashoffset 1s linear;
+}
+
+/* Nodes Styling */
+#nodes circle {
+  fill: #B22222;
+  transition: fill 0.3s ease;
+}
+
+#nodes circle.active {
+  fill: #FFD700; /* Gold color for active nodes */
+}
+
+/* Animated Connections */
+#connections line {
+  stroke: #B22222;
+  stroke-width: 2;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+#connections line.active {
+  opacity: 1;
+}
+
 /* Play Button Styling */
 #playButton {
   background-color: #333;
   color: white;
   border: none;
   border-radius: 50%;
-  padding: 15px;
-  font-size: 16px;
+  padding: 10px 15px; /* Reduced padding for smaller size */
+  font-size: 14px; /* Reduced font size for smaller size */
   cursor: pointer;
   outline: none;
-  transition: background-color 0.3s ease;
-  margin-top: -20px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-top: 20px;
   margin-left: 10px;
-  margin-right: 50px;
+  margin-right: 10px; /* Reduced margin to fit smaller footer */
 }
 
 #playButton:hover {
   background-color: #555;
+  transform: scale(1.05);
 }
 
 #playButton i {
   pointer-events: none;
 }
 
-/* Media Queries for iPhone 14 (width: 430px) */
-@media screen and (max-width: 430px) {
-  #timer {
-    font-size: calc(60px * 0.6);
-  }
+/* Final Section Styling */
+.final-section {
+  width: 100%;
+  padding: 80px 20px;
+  background-color: black; /* Changed to black */
+  color: white; /* Changed text color to white for contrast */
+  text-align: center;
+  transition: background-color 0.3s, color 0.3s;
+  margin-bottom: 20px; /* Added margin to position it slightly up */
+}
 
-  #playButton {
-    padding: calc(15px * 0.85);
-    font-size: calc(24px * 0.85);
-    margin-top: 20px;
-    margin-left: 0;
-    margin-right: 0;
-  }
+.animated-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  font-size: 3rem;
+  font-weight: bold;
+  color: #B22222; /* Dark Brick Red */
+  position: relative;
+}
 
-  .black-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
+.animated-text .letter {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(-50px);
+  animation: flickerMoveIn 1.5s forwards; /* Reduced duration to 1.5s for quicker effect */
+  cursor: default; /* Prevent text selection cursor */
+}
+
+.animated-text .letter:nth-child(1) { animation-delay: 0s; }
+.animated-text .letter:nth-child(2) { animation-delay: 0.1s; }
+.animated-text .letter:nth-child(3) { animation-delay: 0.2s; }
+.animated-text .letter:nth-child(4) { animation-delay: 0.3s; }
+.animated-text .letter:nth-child(5) { animation-delay: 0.4s; }
+.animated-text .letter:nth-child(6) { animation-delay: 0.5s; }
+.animated-text .letter:nth-child(7) { animation-delay: 0.6s; }
+.animated-text .letter:nth-child(8) { animation-delay: 0.7s; }
+.animated-text .letter:nth-child(9) { animation-delay: 0.8s; }
+.animated-text .letter:nth-child(10) { animation-delay: 0.9s; }
+.animated-text .letter:nth-child(11) { animation-delay: 1s; }
+.animated-text .letter:nth-child(12) { animation-delay: 1.1s; }
+.animated-text .letter:nth-child(13) { animation-delay: 1.2s; }
+
+/* Keyframes for Animated Text */
+@keyframes flickerMoveIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  10% {
+    opacity: 1;
+  }
+  20% {
+    opacity: 0.5;
+  }
+  30% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-/* Media Queries for iPhone 8 (width: 375px) */
-@media screen and (max-width: 375px) {
-  #timer {
-    font-size: calc(60px * 0.6);
+/* Additional Animations for Aesthetic Enhancement */
+@keyframes colorPulse {
+  0% {
+    color: #B22222;
   }
-
-  #playButton {
-    padding: calc(15px * 0.85);
-    font-size: calc(24px * 0.85);
-    margin-top: 20px;
-    margin-left: 0;
-    margin-right: 0;
+  50% {
+    color: #A52A2A; /* Brown color */
   }
-
-  .black-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
+  100% {
+    color: #B22222;
   }
 }
 
-/* Adjustments for mobile devices */
-@media screen and (max-width: 768px) {
-  .abstract-section, .content-section {
-    padding: 40px 15px;
+@keyframes float {
+  0% {
+    transform: translateY(0px);
   }
-
-  .abstract-section h2 {
-    font-size: 1.8rem;
+  50% {
+    transform: translateY(-10px);
   }
-
-  .abstract-section summary, .content-section summary {
-    font-size: 1.1rem;
-  }
-
-  .abstract-section p, .content-section p {
-    font-size: 1rem;
-    line-height: 1.6;
-  }
-
-  /* Close all details by default on mobile */
-  .abstract-section details:not(:first-of-type), .content-section details {
-    overflow: hidden;
-  }
-
-  .abstract-section summary::after,
-  .content-section summary::after {
-    content: "+";
+  100% {
+    transform: translateY(0px);
   }
 }
 
-/* Media query for iPhone 14 or larger phones */
-@media screen and (max-width: 430px) {
-  .abstract-section h2 {
-    font-size: 1.6rem;
-  }
-
-  .abstract-section summary, .content-section summary {
-    font-size: 1rem;
-  }
-
-  .abstract-section p, .content-section p {
-    font-size: 0.95rem;
-  }
+.animated-text .letter {
+  animation: flickerMoveIn 1.5s forwards, colorPulse 5s infinite, float 6s ease-in-out infinite;
 }
 
-/* Media query for iPhone 8 or smaller phones */
-@media screen and (max-width: 375px) {
-  .abstract-section h2 {
-    font-size: 1.4rem;
-  }
-
-  .abstract-section summary, .content-section summary {
-    font-size: 0.9rem;
-  }
-
-  .abstract-section p, .content-section p {
-    font-size: 0.9rem;
-  }
+/* Ensure images are responsive */
+img {
+  max-width: 100%;
+  height: auto;
 }
 
-/* Ensure that collapsible sections are expanded on larger screens */
-@media screen and (min-width: 769px) {
-  .abstract-section details, .content-section details {
-    display: block;
-  }
+/* Ensure transitions are smooth */
+a, button {
+  transition: all 0.3s ease;
+}
 
-  .abstract-section summary::after,
-  .content-section summary::after {
-    display: none;
-  }
+/* Sticky Footer Styling */
+#footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: black;
+  color: white;
+  text-align: center;
+  padding: 10px 0; /* Reduced padding for smaller size */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 1000;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark-mode #footer {
+  background-color: #1c1c1c;
+}
+
+.footer-links {
+  display: flex;
+  gap: 20px; /* Space between links */
+  margin-bottom: 5px;
+}
+
+#footer a {
+  color: white;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  transition: color 0.3s;
+}
+
+body.dark-mode #footer a {
+  color: #ff4500;
+}
+
+#footer a:hover {
+  color: #ff4500; /* Accent color on hover */
+}
+
+#footer i {
+  margin-right: 5px;
+}
+
+#footer p {
+  font-size: 0.8rem; /* Reduced font size for smaller footer */
+}
+
+/* Prevent layout shifts in final-section */
+.final-section {
+  overflow: hidden; /* Prevents elements from overflowing their container */
+}
+
+/* Network Countdown Styling */
+.network-countdown {
+  margin: 20px 0;
+}
+
+#circular-countdown {
+  width: 300px;
+  height: 300px;
+}
+
+#progress-circle {
+  stroke-dasharray: 879; /* 2 * PI * r, where r = 140 */
+  stroke-dashoffset: 879; /* Initially hidden */
+  transition: stroke-dashoffset 1s linear;
+}
+
+#nodes circle {
+  fill: #B22222;
+  transition: fill 0.3s ease;
+}
+
+#nodes circle.active {
+  fill: #FFD700; /* Gold color for active nodes */
+}
+
+/* Animated Connections */
+#connections line {
+  stroke: #B22222;
+  stroke-width: 2;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+#connections line.active {
+  opacity: 1;
 }
 
