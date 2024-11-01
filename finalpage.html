@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Final Page</title>
+  
+  <!-- Load 'Press Start 2P' Font from Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+  <style>
+    /* Reset and Base Styles */
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      width: 100%;
+      overflow: hidden; /* Prevent scrollbars */
+      font-family: Arial, sans-serif; /* Default font for content */
+    }
+
+    /* Container Setup */
+    .container {
+      position: fixed; /* Ensure background stays fixed */
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      /* Removed z-index: -1; to prevent layering issues */
+      z-index: 0; /* Default stacking context */
+    }
+
+    /* Image Container Styles */
+    .image-container {
+      position: relative;
+      width: 50%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    /* Anchor Tag Styles */
+    .image-container a {
+      display: block;
+      width: 100%;
+      height: 100%;
+      position: relative;
+      text-decoration: none; /* Remove default underline from links */
+      color: inherit; /* Inherit color for overlay text */
+    }
+
+    /* Video and Image Styles */
+    .image-container img,
+    .image-container video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      image-rendering: crisp-edges;
+      image-rendering: pixelated;
+      transition: transform 0.3s; /* Optional: Smooth scaling on hover */
+      display: block;
+    }
+
+    /* Apply SVG Filters */
+    .image-container img.video-left,
+    .image-container video.video-left {
+      filter: url(#filter1);
+    }
+
+    .image-container img.video-right,
+    .image-container video.video-right {
+      filter: url(#filter2);
+    }
+
+    /* Overlay Text Styles */
+    .overlay-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: gray;
+      font-family: 'Press Start 2P', cursive;
+      font-size: 1.2rem;
+      text-align: center;
+      pointer-events: auto; /* Allow pointer events on text */
+      white-space: nowrap;
+      transition: text-decoration 0.3s; /* Smooth transition for underline */
+      z-index: 2; /* Ensure text is above the overlay */
+    }
+
+    /* Dynamic Darkening Effect Using Pseudo-Element */
+    .image-container::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.3); /* Semi-transparent black */
+      opacity: 0;
+      transition: opacity 0.3s;
+      pointer-events: none; /* Ensure it doesn't block interactions */
+      z-index: 1; /* Place overlay beneath the text */
+    }
+
+    .image-container:hover::before {
+      opacity: 1; /* Show overlay on hover */
+    }
+
+    /* Underline Overlay Text on Hover */
+    .image-container a:hover .overlay-text {
+      text-decoration: underline;
+    }
+
+    /* Back Button Styling */
+    .back-button {
+      font-family: 'Press Start 2P', sans-serif;
+      font-size: 1rem;
+      color: #ffffff; /* Changed to white for better visibility */
+      text-decoration: none; /* Remove default underline */
+      background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+      border: none;
+      cursor: pointer;
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      padding: 10px 15px;
+      border-radius: 5px;
+      transition: background-color 0.3s, color 0.3s, text-decoration 0.3s; /* Added text-decoration transition */
+      z-index: 3; /* Ensure it stays above the content */
+      outline: none; /* Remove default outline */
+      box-shadow: none; /* Remove any default box-shadow */
+    }
+
+    .back-button:hover {
+      text-decoration: underline; /* Add underline on hover */
+      background-color: rgba(255, 255, 255, 0.8);
+      color: #000000;
+      outline: none; /* Ensure no outline on hover */
+      box-shadow: none; /* Ensure no box-shadow on hover */
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+      }
+      .image-container {
+        width: 100%;
+        height: 50%;
+      }
+      .overlay-text {
+        font-size: 1rem;
+      }
+      .back-button {
+        font-size: 0.8rem;
+        padding: 8px 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Back Button -->
+  <a href="index.html" class="back-button" aria-label="Go back to Home">← Home</a>
+
+  <!-- Background Containers -->
+  <div class="container container--preview">
+    <div class="image-container video-left">
+      <a href="blue.html">
+        <img class="video-left" src="https://assets.codepen.io/108721/left.gif" alt="Left Background">
+        <div class="overlay-text">The HMN Explained</div>
+      </a>
+    </div>
+    <div class="image-container video-right">
+      <a href="red.html">
+        <img class="video-right" src="https://assets.codepen.io/108721/right.gif" alt="Right Background">
+        <div class="overlay-text">Problems the HMN solves</div>
+      </a>
+    </div>
+  </div>
+  <div class="container container--no-preview">
+    <div class="image-container video-left">
+      <a href="blue.html">
+        <video class="video-left" loop autoplay muted preload="none" poster="https://assets.codepen.io/108721/videoframe_0.png">
+          <source src="https://videos.pexels.com/video-files/2397239/2397239-sd_960_506_24fps.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <div class="overlay-text">The HMN Explained</div>
+      </a>
+    </div>
+    <div class="image-container video-right">
+      <a href="red.html">
+        <video class="video-right" loop autoplay muted preload="none" poster="https://assets.codepen.io/108721/videoframe_0+%281%29.png">
+          <source src="https://videos.pexels.com/video-files/14952031/14952031-sd_960_540_30fps.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <div class="overlay-text">Problems the HMN Solves</div>
+      </a>
+    </div>
+  </div>
+
+  <!-- SVG Filters -->
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="position: absolute; width: 0; height: 0;">
+    <defs>
+      <!-- Filter 1 -->
+      <filter id="filter1" color-interpolation-filters="sRGB" x="0" y="0" width="100%" height="100%">
+        <feFlood flood-color="#000000" flood-opacity="0.50" x="0%" y="0%" result="flood"/>
+        <feBlend mode="normal" in="SourceGraphic" in2="flood" result="blend1"/>
+        <feImage class="ditherImage" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAA5ElEQVQYlQXBgQbCUABA0fdrk0ySSZJJkiRJMjOTTGZmkiRJZiYzyczMzGQmfdrtHPH7/TgcDuR5zna7pWka9vs9aZqyXq8R0+mU5/OJoihcLhfG4zFBENDtdjmdToj3+81yueTz+WCaJnEcM5/PKcsSXdcRsizjeR6j0YjH40Gr1cJxHAaDAbfbDVHXNbvdjiRJWK1WfL9fLMsiyzI2mw1CVVV836fT6XA8HplMJoRhSK/X43w+I6IoYjabURQFmqbxer1YLBZUVYVhGAhJkrBtm36/z/V6pd1u47ouw+GQ+/3OH4/Fn8FvF/NxAAAAAElFTkSuQmCC" x="0" y="0" width="4" height="4" crossOrigin="anonymous" result="image1"/>
+        <feTile in="image1" result="tile"/>
+        <feBlend mode="overlay" in="blend1" in2="tile" result="blend2"/>
+        <feColorMatrix type="saturate" values="0"/>
+        <feComponentTransfer>
+          <feFuncR type="discrete" tableValues="0 0"/>
+          <feFuncG type="discrete" tableValues="0 1"/>
+          <feFuncB type="discrete" tableValues="0 1"/>
+        </feComponentTransfer>
+      </filter>
+
+      <!-- Filter 2 -->
+      <filter id="filter2" color-interpolation-filters="sRGB" x="0" y="0" width="100%" height="100%">
+        <feFlood flood-color="#000000" flood-opacity="0.50" x="0%" y="0%" result="flood"/>
+        <feBlend mode="normal" in="SourceGraphic" in2="flood" result="blend1"/>
+        <feImage class="ditherImage" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAA5ElEQVQYlQXBgQbCUABA0fdrk0ySSZJJkiRJMjOTTGZmkiRJZiYzyczMzGQmfdrtHPH7/TgcDuR5zna7pWka9vs9aZqyXq8R0+mU5/OJoihcLhfG4zFBENDtdjmdToj3+81yueTz+WCaJnEcM5/PKcsSXdcRsizjeR6j0YjH40Gr1cJxHAaDAbfbDVHXNbvdjiRJWK1WfL9fLMsiyzI2mw1CVVV836fT6XA8HplMJoRhSK/X43w+I6IoYjabURQFmqbxer1YLBZUVYVhGAhJkrBtm36/z/V6pd1u47ouw+GQ+/3OH4/Fn8FvF/NxAAAAAElFTkSuQmCC" x="0" y="0" width="4" height="4" crossOrigin="anonymous" result="image1"/>
+        <feTile in="image1" result="tile"/>
+        <feBlend mode="overlay" in="blend1" in2="tile" result="blend2"/>
+        <feColorMatrix type="saturate" values="0"/>
+        <feComponentTransfer>
+          <feFuncR type="discrete" tableValues="0 0.5 1"/>
+          <feFuncG type="discrete" tableValues="0 0"/>
+          <feFuncB type="discrete" tableValues="0 0"/>
+        </feComponentTransfer>
+      </filter>
+    </defs>
+  </svg>
+
+  <!-- JavaScript -->
+  <script>
+    // Detect if the page is in preview mode
+    const isPreview = location.href.includes('fullcpgrid');
+    const previewContainer = document.querySelector('.container--preview');
+    const noPreviewContainer = document.querySelector('.container--no-preview');
+
+    if (isPreview) {
+      noPreviewContainer.style.display = "none";
+    } else {
+      previewContainer.style.display = "none";
+    }
+
+    // Adjust dither image sizes based on device pixel ratio
+    const ditherImages = document.querySelectorAll('.ditherImage');
+
+    function setDitherImageSizesToPixelRatio() {
+      const devicePixelRatio = window.devicePixelRatio || 1;
+      let size = 8 / devicePixelRatio * (isPreview ? 2 : 1);
+      console.log('Setting dither image size to:', size);
+      ditherImages.forEach(img => {
+        img.setAttribute('width', size);
+        img.setAttribute('height', size);
+      });
+    }
+
+    // Initial setting
+    setDitherImageSizesToPixelRatio();
+
+    // Update on window resize
+    window.addEventListener("resize", setDitherImageSizesToPixelRatio);
+  </script>
+</body>
+</html>
+
