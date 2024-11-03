@@ -3,25 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Human Machines</title>
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <title>The Human-Machine Network</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="header-text">The Human-Machine Network</div>
-    <div class="container">
-        <div class="image-wrapper">
-            <div class="arrow bounce"></div> <!-- Bouncing arrow -->
-            <img src="humans.webp" alt="Human Machines Logo" class="logo-image">
-            <a href="nextpage.html" class="image-cover">
-                <span class="hint-text">Enter Terminal</span>
-            </a>
+    <!-- Header Section -->
+    <header>
+        <h1>The Human-Machine Network</h1>
+    </header>
+    
+    <!-- Main Content -->
+    <div class="content">
+        <!-- 3D Sphere Section -->
+        <div class="canvas-container"></div>
+        
+        <!-- Terminal Interaction Section -->
+        <div id="terminal">
+            <div id="terminal-output"></div>
+            <div id="terminal-input-container">
+                <span class="terminal-prompt">></span>
+                <input type="text" id="terminal-input" autocomplete="off" autofocus />
+            </div>
         </div>
     </div>
     
-    <footer>
-        <a href="https://docs.google.com/document/d/15Ml_FlITDLQogxeTNVTRkXD4KS7TbaeAokYCvTIhXmo/edit?usp=sharing" target="_blank" class="footer-link">Docs</a>
-        <a href="https://discord.gg/GUvvzeZEzg" target="_blank" class="footer-link">Discord</a>
-    </footer>
+    <!-- Shader Scripts and External Libraries -->
+    <script id="sphere-vertex-shader" type="x-shader/x-vertex">
+        uniform float uTime;
+        varying vec3 vPosition;
+        void main() {
+            vec3 delta = 12.0 * normal * sin(abs(position.x) * 30.0 + abs(position.y) * 30.0 + abs(position.z) * 30.0 + uTime * 10.0);
+            vec3 newPosition = position + delta;
+            vPosition = newPosition;
+            gl_Position = projectionMatrix * modelViewMatrix * vec4(newPosition, 1.0);
+        }
+    </script>
+    <script id="sphere-fragment-shader" type="x-shader/x-fragment">
+        uniform float uTime;
+        uniform float uHover;
+        varying vec3 vPosition;
+
+        void main() {
+            float hoverFactor = smoothstep(0.0, 1.0, uHover);
+            vec3 baseColor = mix(vec3(0.0, 1.0, 0.0), vec3(1.0, 0.0, 0.0), hoverFactor);
+
+            if (length(vPosition) < 26.4) {
+                gl_FragColor = vec4(vec3(0.0), 1.0);
+            } else {
+                gl_FragColor = vec4(baseColor, 1.0);
+            }
+        }
+    </script>
+    <script src="https://unpkg.com/three@0.99.0/build/three.min.js"></script>
+    <script src="https://unpkg.com/three@0.99.0/examples/js/controls/OrbitControls.js"></script>
+    <script src="https://unpkg.com/three@0.99.0/examples/js/postprocessing/EffectComposer.js"></script>
+    <script src="https://unpkg.com/three@0.99.0/examples/js/postprocessing/RenderPass.js"></script>
+    <script src="https://unpkg.com/three@0.99.0/examples/js/postprocessing/ShaderPass.js"></script>
+    <script src="https://unpkg.com/three@0.99.0/examples/js/shaders/CopyShader.js"></script>
+    <script src="https://unpkg.com/three@0.99.0/examples/js/shaders/LuminosityHighPassShader.js"></script>
+    <script src="https://unpkg.com/three@0.99.0/examples/js/postprocessing/UnrealBloomPass.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
